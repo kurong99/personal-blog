@@ -14,14 +14,21 @@
                     <li><a href="#">娱乐</a></li>
                     <li><a href="#">发现</a></li>
                     <li><a href="#">关于我</a></li>
+                    <li><a href="#">简介</a></li>
                 </ul>
             </div>
             <div class="seachInput">
-                <input type="text" placeholder="搜索文章">
-                <button>搜索</button>
+                <input type="text" placeholder="搜索文章" class="search">
+                <button class="btn">搜索</button>
+            </div>
+            <div class="localDate">
+                <iframe allowtransparency="true" frameborder="0" width="180" height="36" scrolling="no" 
+                src="//tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=3&bd=0&k=000000&f=&ltf=8080ff&htf=cc0000&q=1&e=1&a=1&c=57494&w=180&h=36&align=center"></iframe>
             </div>
             <div class="toggleThemes">
-                <button>主题</button>
+                <div class="themeCheck"></div>
+                <div class="dark">🌙</div>
+                <div class="light">🌞</div>
             </div>
         </div>
     </header>
@@ -124,6 +131,80 @@
     }
     .nav-list li a:hover {
         color: #c3272b;
+    }
+
+    /* 搜索框和按钮*/
+    .search,.btn {
+        box-sizing:border-box;
+        height: 2.5em;
+        vertical-align: middle;
+        border: 1px solid whitesmoke;
+    }
+    .search {
+        width: 12.5em;
+        border-radius: 10px 0px 0px 10px;
+        outline-style: none;
+        text-indent: 1em
+    }
+    .search::placeholder {
+        font-weight: 200;
+        opacity: 0.4;
+        color: #8c4356;
+    }
+    .search:focus{
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    }
+    .btn {
+        width: 4rem;
+        cursor: pointer;
+        border-radius: 0 10px 10px 0;
+        border: none;
+        outline: 0;
+        font-weight: 200;
+        background-color: #1677ff;
+        color: #f9f9f9;
+        
+    }
+    .btn:hover {
+        background-color: #4096ff;
+    }
+
+    /* 本地时间 */
+    /* .localDate {
+        color: #725e82;
+        font-weight: 800;
+    } */
+
+    /* 主题切换样式 */
+    .toggleThemes {
+        width: 90px;
+        height: 2.5em;
+        padding: 10px;
+        box-sizing:border-box;
+        background-color: #f9f9f9;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+    .themeCheck {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left:10px;
+        line-height: 2.5em;
+        background-color: #00bc12;
+    }
+    .dark, .light, .themeCheck {
+        width: 25px;
+        height: 25px;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 1.1rem;
     }
 
 </style>
