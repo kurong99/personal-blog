@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <div class="content">
         <div class="container">
             <div class="navlogo">
                 <a href="http://localhost:8080/"></a>
@@ -8,7 +8,7 @@
                     <span class="triangle"></span>
                 </div>
             </div>
-            <div class="nav">
+            <nav>
                 <ul class="nav-list">
                     <li><a href="#">文章</a></li>
                     <li><a href="#">娱乐</a></li>
@@ -16,7 +16,7 @@
                     <li><a href="#">关于我</a></li>
                     <li><a href="#">简介</a></li>
                 </ul>
-            </div>
+            </nav>
             <div class="seachInput">
                 <input type="text" placeholder="搜索文章" class="search">
                 <button class="btn">搜索</button>
@@ -31,7 +31,7 @@
                 <div class="light">🌞</div>
             </div>
         </div>
-    </header>
+    </div>
 </template>
 
 <script>
@@ -40,22 +40,24 @@
     }
 </script>
 
-<style>
+<style scoped>
     * {
         list-style: none;
         text-decoration: none;
     }
-    header {
-        position: sticky;
+    .content {
         width: 100vw;
         min-height: 11vh;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #2c3e50;
+        opacity: 0.6;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.18), 0 40px 80px rgba(0, 0, 0, 0.24);
     }
     /* 左侧conan logo */
     .container {
+        position: sticky;
         min-width: 80vw;
         display: flex;
         align-items: center;
@@ -68,7 +70,7 @@
         border-radius: 50%;
         background-image:url(../assets/imgs/cocan.jpg);
         background-size: cover;
-        transition: all 0.8s
+        transition: all 0.8s;
     }
     .navlogo:hover {
         background-image:url(../assets/imgs/xiaolan.jpg);
