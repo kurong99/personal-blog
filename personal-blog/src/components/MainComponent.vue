@@ -1,0 +1,31 @@
+<template>
+  <article>
+    <CarouselComponent/>
+    <ArticleList/>
+  </article>
+</template>
+
+<script>
+import CarouselComponent from './CarouselComponent.vue'
+import ArticleList from './ArticleList.vue'
+
+export default {
+    name: 'MainComponent',
+    components: {
+        CarouselComponent,
+        ArticleList
+    }
+}
+</script>
+
+<style>
+    article {
+        border: 2px solid #758a99;
+        background-color: #808080;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.18), 0 6px 8px rgba(0, 0, 0, 0.24);
+        opacity: 0.3;
+    }
+    article {
+        flex: 2;
+    }
+</style>
