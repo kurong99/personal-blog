@@ -13,8 +13,8 @@
                     <li><a href="#">文章</a></li>
                     <li><a href="#">娱乐</a></li>
                     <li><a href="#">发现</a></li>
-                    <li><a href="#">关于我</a></li>
                     <li><a href="#">简介</a></li>
+                    <li><a href="#">关于本站</a></li>
                 </ul>
             </nav>
             <div class="seachInput">
@@ -183,7 +183,7 @@
     /* 主题切换样式 */
     .toggleThemes {
         width: 90px;
-        height: 2.5em;
+        height: 2em;
         padding: 10px;
         box-sizing:border-box;
         background-color: #f9f9f9;

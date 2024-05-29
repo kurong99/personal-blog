@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <Header/>
+    <header>
+      <Header/>
+    </header>
+    <section>
+      <ViewContainer/>
+    </section>
+    <MeteorComponent/>
   </div>
 </template>
 
 <script>
 import Header from './components/HeaderComponent';
+import ViewContainer from './components/ViewComponent';
+import MeteorComponent from './components/MeteorComponent';
 
 export default {
   name: 'App',
   components: {
     Header,
-  }
+    ViewContainer,
+    MeteorComponent
+  },
 }
 </script>
 
@@ -27,5 +37,13 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+    height: 100vh;
+    background-image: url(./assets/imgs/sky.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1;
+    position: relative;
   }
+  
 </style>
