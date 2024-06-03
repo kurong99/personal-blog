@@ -54,6 +54,7 @@
         background-color: #2c3e50;
         opacity: 0.6;
         box-shadow: 0 40px 60px rgba(0, 0, 0, 0.18), 0 40px 80px rgba(0, 0, 0, 0.24);
+        z-index: 999999;
     }
     /* 左侧conan logo */
     .container {
@@ -96,7 +97,7 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         font-size: 0.8em;
         font-weight: 400;
-        font-family: Arial, sans-serif;
+        font-family: 'Courier New', Courier, monospace;
         top: 10px;
         left:90px;
         opacity: 0;

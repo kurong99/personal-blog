@@ -20,6 +20,7 @@ export default {
 
 <style>
     aside {
+        height: 80vh;
         border: 2px solid #758a99;
         background-color: #808080;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.18), 0 6px 8px rgba(0, 0, 0, 0.24);

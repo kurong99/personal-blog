@@ -10,8 +10,8 @@ export default {
     mounted() {
         const canvas = this.$refs.canvas;
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth - 10;
-        canvas.height = window.innerHeight - 10;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight - 200;
         let meteors = [];
         const stars = 20;
         const addmereor = () => {
@@ -63,10 +63,9 @@ export default {
 </script>
 
 <style scoped>
-  .meteor {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -9999;
-  }
+    .meteor {
+        position: fixed;
+        top: 0;
+        z-index: -999;
+    }
 </style>

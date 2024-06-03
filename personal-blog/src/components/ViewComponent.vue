@@ -21,7 +21,8 @@ export default {
 <style scoped>
     .view-container {
         width: 90vw;
-        height:80vh;
+        height:155vh;
+        /* height: auto; */
         margin: 20px auto;
         display: flex;
         gap: 10px;
