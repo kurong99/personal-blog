@@ -5,6 +5,19 @@
             <span>Copyright © 2024 Cocan</span>
         </div>
     </div>
+    <div class="footerCenter">
+        <div class="runTime">
+            此网站已经运行了
+            <span>{{ runDay }}</span>
+            天
+            <span>{{ runHour }}</span>
+            小时
+            <span>{{ runMin }}</span>
+            分钟
+            <span>{{ runSecond }}</span>
+            秒
+        </div>
+    </div>
     <div class="footerRigth">
         <div class="title">
             <h4>联系我:</h4>
@@ -12,17 +25,17 @@
         <ul>
             <li>
                 <a href="https://github.com/Kurong21">
-                    <img src="../assets/imgs/githublogo.png" alt="">
+                    <img src="../assets/imgs/svg/githublogo.svg" alt="">
                 </a>
             </li>
             <li>
                 <a href="https://blog.csdn.net/weixin_47622761?type=blog">
-                    <img src="../assets/imgs/csdnlogo.png" alt="">
+                    <img src="../assets/imgs/svg/csdnlogo.svg" alt="">
                 </a>
             </li>
             <li>
                 <a href="#">
-                    <img src="../assets/imgs/wechatlogo.png" alt="">
+                    <img src="../assets/imgs/svg/wechatlogo.svg" alt="">
                 </a>
             </li>
         </ul>
@@ -32,7 +45,35 @@
 
 <script>
 export default {
-    name: 'FooterComponent'
+    name: 'FooterComponent',
+    mounted(){
+        this.timer = setInterval(() => {
+            this.difference = -(new Date(2024,4,21,20,36,40) - new Date());
+        })
+    },
+    data() {
+        return {
+            timer:null,
+            difference: '',
+        }
+    },
+    computed: {
+        runDay() {
+            return Math.floor(this.difference / (24 * 3600 * 1000));
+        },
+        runHour() {
+            return Math.floor(this.difference % (24 * 3600 * 1000) / (3600 * 1000));
+        },
+        runMin() {
+            return Math.floor((this.difference % (24 * 3600 * 1000)) % (3600 * 1000) / (60 * 1000));
+        },
+        runSecond() {
+            return Math.round((this.difference % (24 * 3600 * 1000) % (3600 * 1000) % (60 * 1000))/ 1000);
+        }
+    },
+    beforeDestroy() {
+        this.timer = null;
+    }
 }
 </script>
 
@@ -77,6 +118,26 @@ export default {
             background-position: 200%;
         }
     }
+    .footerCenter {
+        display: flex;
+        align-items: center;
+    }
+    .runTime {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        color: transparent;
+        background-size: 200% auto;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(-225deg, #231557, #44107a 29%, #ff1361 67%, #fff800);
+        animation: roate 2s linear infinite;
+    }
+    .runTime span {
+        font-size: 2rem;
+    }
     .footerRigth {
         width: 500px;
         position: relative;
@@ -89,20 +150,22 @@ export default {
         color: rgb(43, 64, 137);
         cursor: pointer;
     }
-
+    ul {
+        transform-style: preserve-3d;
+    }
+    ul li {
+        height: 40px;
+        float: left;
+        margin: 30px;
+        transform: scale(1.5);
+    }
     .footerRigth img {
-        width: 34px;
-        height: 34px;
-        line-height: 30;
-        border-radius: 50%;
+        width: 40px;
+        height: 40px;
         transition: all .5s;
     }
     .footerRigth img:hover {
-        transform: translateY(-15px);
-    }
-    ul li {
-        float: left;
-        margin-left: 30px;
+        transform: scale(1.6) translateY(-10px);
     }
     h4 {
         color: transparent;
