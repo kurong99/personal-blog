@@ -57,10 +57,11 @@ export default {
   header{
     position: sticky;
     top: 0;
+    z-index: 9999;
   }
 
   footer {
     opacity: 0.6;
-    background-image: linear-gradient(45deg, #3d3b4f, rgb(9, 6, 21));
+    background-image: linear-gradient(-45deg, #94939e, rgb(9, 6, 21));
   }
 </style>

@@ -24,6 +24,7 @@ export default {
         background-color: #808080;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.18), 0 6px 8px rgba(0, 0, 0, 0.24);
         opacity: 0.3;
+        z-index: -9999;
     }
     article {
         flex: 2;

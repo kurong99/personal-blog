@@ -58,11 +58,12 @@
     }
     /* 左侧conan logo */
     .container {
-        position: sticky;
         min-width: 80vw;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
     }
     .navlogo {
         width: 80px;
