@@ -7,7 +7,7 @@
 
 <script>
 import CarouselComponent from '../pages/CarouselComponent.vue'
-import ArticleList from './ArticleList.vue'
+import ArticleList from '../pages/ArticleList.vue'
 
 export default {
     name: 'MainComponent',
