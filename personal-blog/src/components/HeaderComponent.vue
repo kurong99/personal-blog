@@ -10,7 +10,7 @@
             </div>
             <nav>
                 <ul class="nav-list">
-                    <li><a href="#">文章</a></li>
+                    <li class="active"><a href="#">主页</a></li>
                     <li><a href="#">娱乐</a></li>
                     <li><a href="#">发现</a></li>
                     <li><a href="#">简介</a></li>
@@ -126,7 +126,8 @@
     .nav-list li {
         float: left;
         margin-left: 4em;
-        line-height: 40px;
+        padding: 5px;
+        line-height: 30px;
     }
     .nav-list li a {
         color:whitesmoke;
@@ -136,7 +137,12 @@
     .nav-list li a:hover {
         color: #c3272b;
     }
-
+    /* 被选中后的样式 */
+    .active {
+        opacity: 1;
+        background-color: #111211;
+        border-radius: 15px;
+    }
     /* 搜索框和按钮*/
     .search,.btn {
         box-sizing:border-box;
