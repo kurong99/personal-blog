@@ -1,8 +1,6 @@
 <template>
   <div class="carousel">
-    <div class="title">
-      <span>精选文章</span>
-    </div>
+    <TitleComponent>精选文章</TitleComponent>
     <ul class="picList">
       <li>
         <a href="#">
@@ -45,8 +43,13 @@
 </template>
 
 <script>
+import TitleComponent from '../components/TitleComponent';
+
 export default {
-    name: 'CarouselComponent'
+    name: 'CarouselComponent',
+    components: {
+      TitleComponent,
+    }
 }
 </script>
 
@@ -60,19 +63,6 @@ export default {
       height: 360px;
       margin: 20px auto;
       overflow: hidden;
-  }
-  .title {
-    float: left;
-    -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
-    transform: perspective(1000px) rotateY(10deg);
-  }
-  .title span {
-    color: aliceblue;
-    font-weight: bold;
-    font-size: 2rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-decoration: underline;
-    cursor: pointer;
   }
   ul {
       width: 100%;
@@ -92,8 +82,6 @@ export default {
     opacity: 0.6;
     border-radius: 50px;
     transition: all .5s;
-    /* -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.5)); */
-    /* transform: perspective(1000px) rotateY(10deg); */
     box-shadow: 8px 8px 11px rgba(0, 0, 0, 0.8);
     position: relative;
   }

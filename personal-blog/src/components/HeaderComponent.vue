@@ -134,9 +134,9 @@
         font-size: 1rem;
         font-weight: 800;
     }
-    .nav-list li a:hover {
-        color: #c3272b;
-    }
+    /* .nav-list li a:hover {
+        color: rgb(241, 112, 112);
+    } */
     /* 被选中后的样式 */
     .active {
         opacity: 1;
