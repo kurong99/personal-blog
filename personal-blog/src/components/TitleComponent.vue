@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style scoped>
-    .title {
+  .title {
     float: left;
     -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(0, 0, 0, 0.5));
     transform: perspective(1000px) rotateY(10deg);

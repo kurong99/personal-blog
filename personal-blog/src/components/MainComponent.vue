@@ -20,6 +20,9 @@ export default {
 
 <style scoped>
     article {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         z-index: 999;
     }
     article {
