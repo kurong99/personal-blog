@@ -5,50 +5,106 @@
       <div class="timeline">
         <div class="timeline-title"></div>
         <div class="timeline-details">Dec 25</div>
-        <div class="timeline-icon"></div>
-        <div class="timeline-content"></div>
+        <div class="timeline-icon">
+          <div class="timeline-bar"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="timeline-title">Thanksgiving Day</h2>
+          <div class="content-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+          </div>
+        </div>
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
         <div class="timeline-details">Oct 12</div>
-        <div class="timeline-icon"></div>
-        <div class="timeline-content"></div>
+        <div class="timeline-icon">
+          <div class="timeline-bar"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="timeline-title">Thanksgiving Day</h2>
+          <div class="content-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+          </div>
+        </div>
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
         <div class="timeline-details">Sep 13</div>
-        <div class="timeline-icon"></div>
-        <div class="timeline-content"></div>
+        <div class="timeline-icon">
+          <div class="timeline-bar"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="timeline-title">Thanksgiving Day</h2>
+          <div class="content-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+          </div>
+        </div>
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
         <div class="timeline-details">Aug 07</div>
-        <div class="timeline-icon"></div>
-        <div class="timeline-content"></div>
+        <div class="timeline-icon">
+          <div class="timeline-bar"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="timeline-title">Thanksgiving Day</h2>
+          <div class="content-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+          </div>
+        </div>
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
         <div class="timeline-details">Aug 07</div>
-        <div class="timeline-icon"></div>
-        <div class="timeline-content"></div>
+        <div class="timeline-icon">
+          <div class="timeline-bar"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="timeline-title">Thanksgiving Day</h2>
+          <div class="content-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+          </div>
+        </div>
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
         <div class="timeline-details">Aug 07</div>
-        <div class="timeline-icon"></div>
-        <div class="timeline-content"></div>
+        <div class="timeline-icon">
+          <div class="timeline-bar"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="timeline-title">Thanksgiving Day</h2>
+          <div class="content-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+          </div>
+        </div>
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
         <div class="timeline-details">Aug 07</div>
-        <div class="timeline-icon"></div>
-        <div class="timeline-content"></div>
+        <div class="timeline-icon">
+          <div class="timeline-bar"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="timeline-title">Thanksgiving Day</h2>
+          <div class="content-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+          </div>
+        </div>
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
         <div class="timeline-details">Aug 07</div>
-        <div class="timeline-icon"></div>
-        <div class="timeline-content"></div>
+        <div class="timeline-icon">
+          <div class="timeline-bar"></div>
+        </div>
+        <div class="timeline-content">
+          <h2 class="timeline-title">Thanksgiving Day</h2>
+          <div class="content-details">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -66,6 +122,11 @@ export default {
 </script>
 
 <style scoped>
+
+  .html {
+    font-size: 16px;
+  }
+
   .article-list {
     width: 100%;
     flex-grow: 1;
@@ -97,12 +158,102 @@ export default {
     height: 200px;
     margin: 10px 0 0 20px;
     opacity: 0.8;
+    position: relative;
+    border-radius: 5px;
+    z-index: 99;
+    cursor: pointer;
   }
   .timeline:nth-child(2n) {
-    background-color: #003371;
+    background-color: #2e4e7e;
+  }
+  .timeline:nth-child(2n)::before {
+    content: "";
+    clip-path: polygon(0 13%, 0 87%, 89% 50%);
+    width: 2.2rem;
+    height: 2.2rem;
+    position: absolute;
+    top: 20%;
+    left: 100%;
+    background-color: #2e4e7e;
   }
   .timeline:nth-child(2n+1) {
     margin: 10px 0 0 var(--space);
-    background-color: #0c6ee5;
+    background-color: #2F3949;
+  }
+  .timeline:nth-child(2n+1)::before {
+    content: "";
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    width: 2.2rem;
+    height: 2.2rem;
+    position: absolute;
+    top: 20%;
+    right: 100%;
+    background-color: #2F3949;
+  }
+
+  .timeline:nth-child(2n+1) .timeline-details {
+    right: 150%;
+    color: #b3a7a7;
+    margin: 50px 0 0 50px;
+    position: absolute;
+    font-weight: 400;
+    width: 60px;
+  }
+
+  .timeline:nth-child(2n) .timeline-details {
+    left: 150%;
+    color: #b3a7a7;
+    margin: 50px 0 0 50px;
+    position: absolute;
+    font-weight: 500;
+    width: 60px;
+  }
+
+  .timeline:nth-child(2n + 1) .timeline-icon {
+    --top: 20%;
+    --w: 7px;
+    --h: calc(20% + calc(35px / 2) - var(--w));
+    --l: calc(0% - var(--size) / 2 - 5px);
+    background-color: #1C1F23;
+    position: absolute;
+    left: var(--l);
+    top: var(--h);
+    height: 14px;
+    width: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 999;
+  }
+  .timeline:nth-child(2n) .timeline-icon {
+    --top: 20%;
+    --w: 7px;
+    --h: calc(20% + calc(35px / 2) - var(--w));
+    --r: calc(0% - var(--size) / 2 - 5px);
+    background-color: #152443d8;
+    position: absolute;
+    right: var(--r);
+    top: var(--h);
+    height: 14px;
+    width: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    z-index: 999;
+  }
+  .timeline-bar {
+    height: 4px;
+    width: 4px;
+    background: #C1C1C1;
+    border-radius: 5px;
+  }
+  .timeline-content {
+    position: absolute;
+    top: 20px;
+    color: #fff;
+    text-align:left;
+    padding: 10px;
   }
 </style>
