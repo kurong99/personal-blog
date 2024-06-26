@@ -81,6 +81,7 @@ export default {
     * {
         list-style: none;
         text-decoration: none;
+        box-sizing: border-box;
     }
     .footer {
         width: 90vw;
@@ -88,6 +89,7 @@ export default {
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        /* overflow: hidden; */
     }
     .footerLeft {
         width: 500px;
@@ -124,7 +126,7 @@ export default {
     }
     .runTime {
         width: 100%;
-        height: 50%;
+        height: 55%;
         display: flex;
         align-items: center;
         font-weight: bold;
@@ -136,10 +138,11 @@ export default {
         animation: roate 2s linear infinite;
     }
     .runTime span {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .footerRigth {
         width: 500px;
+        height: 100%;
         position: relative;
         display: flex;
         justify-content: end;
@@ -147,17 +150,20 @@ export default {
     }
 
     .title {
+        height: 100%;
         color: rgb(43, 64, 137);
         cursor: pointer;
     }
     ul {
+        max-height: 100%;
+        margin: 0;
+        padding-left: 30px;
         transform-style: preserve-3d;
+        display: flex;
     }
     ul li {
-        height: 40px;
-        float: left;
-        margin: 30px;
-        transform: scale(1.5);
+        margin-left: 20px;
+        height: 100%;
     }
     .footerRigth img {
         width: 40px;

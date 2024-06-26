@@ -38,15 +38,6 @@
           <img src="../assets/imgs/mountains.jpg" alt="">
         </a>
       </li>
-      <li>
-        <a href="#">
-          <div class="introduce">
-            <h4>文章标题</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, animi.</p>
-          </div>
-          <img src="../assets/imgs/lake.jpg" alt="">
-        </a>
-      </li>
     </ul>
   </div>
 </template>
