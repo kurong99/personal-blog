@@ -4,7 +4,7 @@
     <div class="timelines">
       <div class="timeline">
         <div class="timeline-title"></div>
-        <div class="timeline-details">Dec 25</div>
+        <div class="timeline-details">Dec 25 2024</div>
         <div class="timeline-icon">
           <div class="timeline-bar"></div>
         </div>
@@ -17,7 +17,7 @@
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
-        <div class="timeline-details">Oct 12</div>
+        <div class="timeline-details">Oct 12 2024</div>
         <div class="timeline-icon">
           <div class="timeline-bar"></div>
         </div>
@@ -30,7 +30,7 @@
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
-        <div class="timeline-details">Sep 13</div>
+        <div class="timeline-details">Sep 13 2024</div>
         <div class="timeline-icon">
           <div class="timeline-bar"></div>
         </div>
@@ -43,7 +43,7 @@
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07</div>
+        <div class="timeline-details">Aug 07 2024</div>
         <div class="timeline-icon">
           <div class="timeline-bar"></div>
         </div>
@@ -56,7 +56,7 @@
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07</div>
+        <div class="timeline-details">Aug 07 2024</div>
         <div class="timeline-icon">
           <div class="timeline-bar"></div>
         </div>
@@ -69,7 +69,7 @@
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07</div>
+        <div class="timeline-details">Aug 07 2024</div>
         <div class="timeline-icon">
           <div class="timeline-bar"></div>
         </div>
@@ -82,7 +82,7 @@
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07</div>
+        <div class="timeline-details">Aug 07 2024</div>
         <div class="timeline-icon">
           <div class="timeline-bar"></div>
         </div>
@@ -95,7 +95,7 @@
       </div>
       <div class="timeline">
         <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07</div>
+        <div class="timeline-details">Aug 07 2024</div>
         <div class="timeline-icon">
           <div class="timeline-bar"></div>
         </div>
@@ -160,9 +160,12 @@ export default {
     opacity: 0.8;
     position: relative;
     border-radius: 5px;
-    z-index: 99;
+    z-index: 9999;
     cursor: pointer;
+    transition: all 0.4s linear;
   }
+
+
   .timeline:nth-child(2n) {
     background-color: #2e4e7e;
   }
@@ -176,13 +179,14 @@ export default {
     left: 100%;
     background-color: #2e4e7e;
   }
+
   .timeline:nth-child(2n+1) {
     margin: 10px 0 0 var(--space);
     background-color: #2F3949;
   }
   .timeline:nth-child(2n+1)::before {
     content: "";
-    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+    clip-path: polygon(101% 0, 101% 70%, 15% 35%);
     width: 2.2rem;
     height: 2.2rem;
     position: absolute;
@@ -191,13 +195,17 @@ export default {
     background-color: #2F3949;
   }
 
+  .timeline:nth-child(2n):hover, .timeline:nth-child(2n + 1):hover {
+    filter: drop-shadow(0px 30px 30px rgba(0, 0, 0, 0.8));
+  }
+
   .timeline:nth-child(2n+1) .timeline-details {
     right: 150%;
     color: #b3a7a7;
     margin: 50px 0 0 50px;
     position: absolute;
     font-weight: 400;
-    width: 60px;
+    width: 100px;
   }
 
   .timeline:nth-child(2n) .timeline-details {
@@ -206,7 +214,7 @@ export default {
     margin: 50px 0 0 50px;
     position: absolute;
     font-weight: 500;
-    width: 60px;
+    width: 100px;
   }
 
   .timeline:nth-child(2n + 1) .timeline-icon {
