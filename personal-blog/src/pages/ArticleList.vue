@@ -2,110 +2,17 @@
   <div class="article-list">
     <TitleComponent>文章列表</TitleComponent>
     <div class="timelines">
-      <div class="timeline">
-        <div class="timeline-title"></div>
-        <div class="timeline-details">Dec 25 2024</div>
-        <div class="timeline-icon">
-          <div class="timeline-bar"></div>
-        </div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">Thanksgiving Day</h2>
-          <div class="content-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
+        <div class="timeline" v-for="item in items" :key="item.id" :class="{'fade-in': isLoad}">
+          <div class="timeline-title"></div>
+          <div class="timeline-details">{{ item.date }}</div>
+          <div class="timeline-icon">
+            <div class="timeline-bar"></div>
+          </div>
+          <div class="timeline-content">
+            <h2 class="timeline-title">{{ item.title }}</h2>
+            <div class="content-details">{{ item.detail }}</div>
           </div>
         </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-title"></div>
-        <div class="timeline-details">Oct 12 2024</div>
-        <div class="timeline-icon">
-          <div class="timeline-bar"></div>
-        </div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">Thanksgiving Day</h2>
-          <div class="content-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
-          </div>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-title"></div>
-        <div class="timeline-details">Sep 13 2024</div>
-        <div class="timeline-icon">
-          <div class="timeline-bar"></div>
-        </div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">Thanksgiving Day</h2>
-          <div class="content-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
-          </div>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07 2024</div>
-        <div class="timeline-icon">
-          <div class="timeline-bar"></div>
-        </div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">Thanksgiving Day</h2>
-          <div class="content-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
-          </div>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07 2024</div>
-        <div class="timeline-icon">
-          <div class="timeline-bar"></div>
-        </div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">Thanksgiving Day</h2>
-          <div class="content-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
-          </div>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07 2024</div>
-        <div class="timeline-icon">
-          <div class="timeline-bar"></div>
-        </div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">Thanksgiving Day</h2>
-          <div class="content-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
-          </div>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07 2024</div>
-        <div class="timeline-icon">
-          <div class="timeline-bar"></div>
-        </div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">Thanksgiving Day</h2>
-          <div class="content-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
-          </div>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-title"></div>
-        <div class="timeline-details">Aug 07 2024</div>
-        <div class="timeline-icon">
-          <div class="timeline-bar"></div>
-        </div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">Thanksgiving Day</h2>
-          <div class="content-details">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -115,8 +22,59 @@ import TitleComponent from '../components/TitleComponent';
 
 export default {
     name: 'ArticleList',
+    mounted() {
+      window.addEventListener('load',this.handleLoad,true);
+    },
     components: {
       TitleComponent
+    },
+    data() {
+      return {
+        isLoad: false,
+        items: [
+          {
+            id: 1,
+            date: 'Dec 25 2024',
+            title: 'Thanksgiving Day',
+            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
+          },
+          {
+            id: 2,
+            date: 'Dec 25 2024',
+            title: 'Thanksgiving Day',
+            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
+          },
+          {
+            id: 3,
+            date: 'Dec 25 2024',
+            title: 'Thanksgiving Day',
+            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
+          },
+          {
+            id: 4,
+            date: 'Dec 25 2024',
+            title: 'Thanksgiving Day',
+            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
+          },
+          {
+            id: 5,
+            date: 'Dec 25 2024',
+            title: 'Thanksgiving Day',
+            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
+          },
+          {
+            id: 6,
+            date: 'Dec 25 2024',
+            title: 'Thanksgiving Day',
+            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
+          }
+        ]
+      }
+    },
+    methods: {
+      handleLoad() {
+        this.isLoad = true;
+      }
     }
 }
 </script>
@@ -165,6 +123,19 @@ export default {
     transition: all 0.4s linear;
   }
 
+  .fade-in{
+    animation: appear-in 1.3s ease;
+  }
+  @keyframes appear-in {
+    from {
+      opacity: 0;
+      transform: translateX(150px);
+    }
+    to {
+      opacity: 0.8;
+      transform: translateX(0px);
+    }
+  }
 
   .timeline:nth-child(2n) {
     background-color: #2e4e7e;
