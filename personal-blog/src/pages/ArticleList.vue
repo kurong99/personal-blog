@@ -2,7 +2,7 @@
   <div class="article-list">
     <TitleComponent>文章列表</TitleComponent>
     <div class="timelines">
-        <div class="timeline" v-for="item in items" :key="item.id" :class="{'fade-in': isLoad}">
+        <div class="timeline" v-for="item in items" :key="item.id" :class="{'fade-in-right': isLoad }">
           <div class="timeline-title"></div>
           <div class="timeline-details">{{ item.date }}</div>
           <div class="timeline-icon">
@@ -73,7 +73,7 @@ export default {
     },
     methods: {
       handleLoad() {
-        this.isLoad = true;
+          this.isLoad = true;
       }
     }
 }
@@ -123,10 +123,10 @@ export default {
     transition: all 0.4s linear;
   }
 
-  .fade-in{
-    animation: appear-in 1.3s ease;
+  .fade-in-right{
+    animation: appear-in-right 1.3s ease;
   }
-  @keyframes appear-in {
+  @keyframes appear-in-right {
     from {
       opacity: 0;
       transform: translateX(150px);
@@ -136,6 +136,7 @@ export default {
       transform: translateX(0px);
     }
   }
+  
 
   .timeline:nth-child(2n) {
     background-color: #2e4e7e;
