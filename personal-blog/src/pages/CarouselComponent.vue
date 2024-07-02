@@ -73,7 +73,7 @@ export default {
   }
   li {
     --n: 4;
-    --size: 22%;
+    --size: 20%;
     width: var(--size);
     height: 70%;
     --space: calc(100% - var(--n) * var(--size));
