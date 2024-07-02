@@ -1,6 +1,6 @@
 <template>
   <div class="article-list">
-    <TitleComponent>文章列表</TitleComponent>
+    <TitleComponent>文章"轴"</TitleComponent>
     <div class="timelines">
         <div class="timeline" v-for="item in items" :key="item.id" :class="{'fade-in-right': isLoad }">
           <div class="timeline-title"></div>
