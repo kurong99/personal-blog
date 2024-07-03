@@ -8,40 +8,14 @@
             </div>
         </div>
         <div class="skill">
-            <div class="skill-item">
+            <div class="skill-item" v-for="skill in skillList" :key="skill.id">
                 <div class="skill-text">
-                    <h6>HTML</h6>
-                    <h6>80%</h6>
+                    <h6>{{ skill.name }}</h6>
+                    <h6>{{ skill.proficiency }}</h6>
                 </div>
-                <div class="skill-progress"></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-text">
-                    <h6>CSS</h6>
-                    <h6>70%</h6>
+                <div class="skill-bar">
+                    <div class="skill-progress" :style="{ width: skill.proficiency }"></div>
                 </div>
-                <div class="skill-progress"></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-text">
-                    <h6>JAVASCRIPT</h6>
-                    <h6>90%</h6>
-                </div>
-                <div class="skill-progress"></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-text">
-                    <h6>PHP</h6>
-                    <h6>30%</h6>
-                </div>
-                <div class="skill-progress"></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-text">
-                    <h6>VUE</h6>
-                    <h6>70%</h6>
-                </div>
-                <div class="skill-progress"></div>
             </div>
         </div>
     </aside>
@@ -49,18 +23,51 @@
 
 <script>
 export default {
-    name: 'SideComponent'
+    name: 'SideComponent',
+    data() {
+        return {
+            skillList: [
+                {
+                    id: 1,
+                    name: 'HTML',
+                    proficiency: '90%'
+                },
+                {
+                    id: 2,
+                    name: 'CSS',
+                    proficiency: '80%'
+                },
+                {
+                    id: 3,
+                    name: 'JAVASCRIPT',
+                    proficiency: '80%'
+                },
+                {
+                    id: 4,
+                    name: 'PHP',
+                    proficiency: '30%'
+                },
+                {
+                    id: 5,
+                    name: 'VUE',
+                    proficiency: '80%'
+                },
+            ]
+        }
+    }
 }
 </script>
 
 <style>
     aside {
-        margin-top: 100px;
+        margin-top: 80px;
         height: 70vh;
         color: aliceblue;
         box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.5);
         opacity: 0.8;
         flex: 0.5;
+        position: sticky;
+        top: 12vh;
     }
     .about {
         width: 100%;
@@ -120,19 +127,19 @@ export default {
         margin: 0;
         padding: 10px 0px;
     }
-    .skill-progress {
+    .skill-bar {
         width: 100%;
         height: 5px;
         position: relative;
-        background-color: rgb(15, 15, 16);
+        background-color: rgb(1, 1, 11);
     }
-    .skill-progress::before {
+    .skill-progress {
         content: "";
-        width: 70%;
+        width: 120%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba(123, 125, 126, 0.842);
+        background-color: #44cef6
     }
 </style>
