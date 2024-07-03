@@ -5,7 +5,6 @@
                 <a href="http://localhost:8080/"></a>
                 <div class="bubble">
                     达咩!
-                    <span class="triangle"></span>
                 </div>
             </div>
             <nav>
@@ -21,7 +20,7 @@
                 <input type="text" placeholder="搜索文章" class="search">
                 <button class="btn">搜索</button>
             </div>
-            <div class="localDate">
+            <div class="localWeather">
                 <iframe allowtransparency="true" frameborder="0" width="180" height="36" scrolling="no" 
                 src="//tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=3&bd=0&k=000000&f=&ltf=8080ff&htf=cc0000&q=1&e=1&a=1&c=57494&w=180&h=36&align=center"></iframe>
             </div>
@@ -47,7 +46,7 @@
     }
     .content {
         width: 100vw;
-        min-height: 11vh;
+        min-height: 12vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -58,12 +57,12 @@
     }
     /* 左侧conan logo */
     .container {
-        min-width: 80vw;
+        min-width: 90vw;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        
+        gap: 30px;
     }
     .navlogo {
         width: 80px;
@@ -89,45 +88,50 @@
     /* 气泡框 */
     .bubble {
         display: inline-block;
-        padding: 10px 20px;
+        padding: 10px;
         background-color: #f9f9f9;
         border-radius: 10px;
         position: absolute;
-        width: 3em;
+        width: 2.8em;
         height: 1.5em;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         font-size: 0.8em;
-        font-weight: 400;
+        font-weight: 800;
         font-family: 'Courier New', Courier, monospace;
         top: 10px;
-        left:90px;
+        left:6rem;
         opacity: 0;
         transition: all 0.5s
     }
-    .triangle {
+    .bubble::before {
+        content: "";
+        width: 2rem;
+        height: 2rem;
+        clip-path: polygon(100% 31%, 40% 53%, 100% 69%);
+        background-color: #f9f9f9;
         position: absolute;
-        width: 0;
-        height: 0;
-        border-style: solid;
-    }
-    .bubble .triangle {
-        top: 25px;
-        margin-top: -5px;
-        left: -10px;
-        border-width: 5px 15px 5px 0;
-        border-color: transparent #f9f9f9 transparent transparent;
-        transform: rotate(-30deg);
+        top: 0.5rem;
+        left: -1.9rem;
+        z-index: 99;
     }
 
     /* 中间导航选项 */
+    nav {
+        /* flex: 1 1 25rem; */
+        width: 35rem;
+    }
     .nav-list {
+        width: 100%;
         height: 40px;
+        padding-left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     .nav-list li {
-        float: left;
-        margin-left: 4em;
-        padding: 5px;
-        line-height: 30px;
+        margin-left: 4rem;
+        padding: 3px;
+        transform: scale(1.2);
     }
     .nav-list li a {
         color:whitesmoke;

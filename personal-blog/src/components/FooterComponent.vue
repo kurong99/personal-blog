@@ -150,7 +150,8 @@ export default {
     }
 
     .title {
-        height: 100%;
+        height: 50%;
+        /* margin: auto; */
         color: rgb(43, 64, 137);
         cursor: pointer;
     }
@@ -174,11 +175,13 @@ export default {
         transform: scale(1.6) translateY(-10px);
     }
     h4 {
+        margin: 0;
         color: transparent;
         background-size: 200% auto;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         background-image: linear-gradient(-225deg, #231557, #44107a 29%, #ff1361 67%, #fff800);
         animation: roate 1s linear infinite;
+        line-height: 50px;
     }
 </style>

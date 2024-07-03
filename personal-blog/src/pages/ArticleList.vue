@@ -75,6 +75,9 @@ export default {
       handleLoad() {
           this.isLoad = true;
       }
+    },
+    beforeMount() {
+      window.removeEventListener('load', this.handleLoad);
     }
 }
 </script>
@@ -167,7 +170,7 @@ export default {
     background-color: #2F3949;
   }
 
-  .timeline:nth-child(2n):hover, .timeline:nth-child(2n + 1):hover {
+  .timeline:nth-child(2n), .timeline:nth-child(2n + 1) {
     filter: drop-shadow(0px 30px 30px rgba(0, 0, 0, 0.8));
   }
 

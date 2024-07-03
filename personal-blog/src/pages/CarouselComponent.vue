@@ -1,7 +1,7 @@
 <template>
   <div class="carousel">
     <TitleComponent>精选文章</TitleComponent>
-    <ul class="picList">
+    <ul class="list">
       <li>
         <a href="#">
           <div class="introduce">
@@ -66,16 +66,17 @@ export default {
   }
   ul {
       width: 100%;
-      height: 100%;
+      height: 90%;
       padding: 0;
       display: flex;
+      align-items: center;
       transform-style: preserve-3d;
   }
   li {
     --n: 4;
     --size: 20%;
     width: var(--size);
-    height: 70%;
+    height: calc(var(--size) * 3.5);
     --space: calc(100% - var(--n) * var(--size));
     --h: calc(var(--space) / var(--n) / 2);
     margin: 50px var(--h);
@@ -85,7 +86,7 @@ export default {
     box-shadow: 8px 8px 11px rgba(0, 0, 0, 0.8);
     position: relative;
   }
-  .picList li:hover {
+  ul li:hover {
     opacity: 1;
   }
   .introduce {
@@ -104,12 +105,13 @@ export default {
     margin: 10px 5px;
   }
   ul:hover > :not(:hover) {
-    margin:50px 10px;
+    /* margin:5px 10px; */
+    margin-top: -5px;
     filter: drop-shadow(0 0 10px #000);
-    transform: perspective(800px) rotateY(45deg) scale(0.8);
+    transform: perspective(800px) rotateY(35deg) scale(0.8);
   }
-  .picList li:hover ~ li {
-    transform: perspective(800px) rotateY(-45deg) scale(0.8);
+  .list li:hover ~ li {
+    transform: perspective(800px) rotateY(-35deg) scale(0.8);
   }
   img {
       width: 100%;
