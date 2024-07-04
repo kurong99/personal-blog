@@ -110,7 +110,7 @@ export default {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(-225deg, #231557, #44107a 29%, #ff1361 67%, #fff800);
+        background-image: var(--footerGradient);
         animation: roate 3s linear infinite;
         color: transparent;
         background-size: 200% auto;
@@ -134,7 +134,7 @@ export default {
         background-size: 200% auto;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(-225deg, #231557, #44107a 29%, #ff1361 67%, #fff800);
+        background-image: var(--footerGradient);
         animation: roate 2s linear infinite;
     }
     .runTime span {
@@ -151,8 +151,6 @@ export default {
 
     .title {
         height: 50%;
-        /* margin: auto; */
-        color: rgb(43, 64, 137);
         cursor: pointer;
     }
     ul {
@@ -166,10 +164,15 @@ export default {
         margin-left: 20px;
         height: 100%;
     }
+    ul li a {
+        display: block;
+        height: 40px;
+    }
     .footerRigth img {
         width: 40px;
         height: 40px;
         transition: all .5s;
+        object-position: center;
     }
     .footerRigth img:hover {
         transform: scale(1.6) translateY(-10px);
@@ -180,7 +183,7 @@ export default {
         background-size: 200% auto;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        background-image: linear-gradient(-225deg, #231557, #44107a 29%, #ff1361 67%, #fff800);
+        background-image: var(--footerGradient);
         animation: roate 1s linear infinite;
         line-height: 50px;
     }

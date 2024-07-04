@@ -21,7 +21,7 @@ export default {
   .typing {
     width: 8rem;
     margin: 0;
-    color: aliceblue;
+    color: var(--textColor);
     white-space: nowrap;
     font-weight: bold;
     font-size: 2rem;

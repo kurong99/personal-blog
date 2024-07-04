@@ -62,7 +62,7 @@ export default {
     aside {
         margin-top: 80px;
         height: 70vh;
-        color: aliceblue;
+        color: var(--textColor);
         box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.5);
         opacity: 0.8;
         flex: 0.5;
@@ -140,6 +140,6 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: #44cef6
+        background-color: var(--progress);
     }
 </style>

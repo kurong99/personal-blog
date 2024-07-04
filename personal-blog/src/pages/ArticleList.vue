@@ -142,7 +142,7 @@ export default {
   
 
   .timeline:nth-child(2n) {
-    background-color: #2e4e7e;
+    background-color: var(--B);
   }
   .timeline:nth-child(2n)::before {
     content: "";
@@ -152,12 +152,12 @@ export default {
     position: absolute;
     top: 20%;
     left: 100%;
-    background-color: #2e4e7e;
+    background-color: var(--B);
   }
 
   .timeline:nth-child(2n+1) {
     margin: 10px 0 0 var(--space);
-    background-color: #2F3949;
+    background-color: var(--A);
   }
   .timeline:nth-child(2n+1)::before {
     content: "";
@@ -167,7 +167,7 @@ export default {
     position: absolute;
     top: 20%;
     right: 100%;
-    background-color: #2F3949;
+    background-color: var(--A);
   }
 
   .timeline:nth-child(2n), .timeline:nth-child(2n + 1) {
@@ -176,22 +176,20 @@ export default {
 
   .timeline:nth-child(2n+1) .timeline-details {
     right: 150%;
-    color: #b3a7a7;
-    margin: 50px 0 0 50px;
-    position: absolute;
-    font-weight: 400;
-    width: 100px;
   }
 
   .timeline:nth-child(2n) .timeline-details {
     left: 150%;
-    color: #b3a7a7;
+  }
+  .timeline:nth-child(2n) .timeline-details, .timeline:nth-child(2n+1) .timeline-details {
+    color: var(--textColor);
     margin: 50px 0 0 50px;
     position: absolute;
     font-weight: 500;
     width: 100px;
+    text-decoration: underline;
+    text-decoration-color: var(--underline)
   }
-
   .timeline:nth-child(2n + 1) .timeline-icon {
     --top: 20%;
     --w: 7px;
@@ -235,7 +233,7 @@ export default {
   .timeline-content {
     position: absolute;
     top: 20px;
-    color: #fff;
+    color: var(--textColor);
     text-align:left;
     padding: 10px;
   }

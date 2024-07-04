@@ -80,7 +80,7 @@ export default {
     --space: calc(100% - var(--n) * var(--size));
     --h: calc(var(--space) / var(--n) / 2);
     margin: 50px var(--h);
-    opacity: 0.6;
+    opacity: var(--opacity);
     border-radius: 50px;
     transition: all .5s;
     box-shadow: 8px 8px 11px rgba(0, 0, 0, 0.8);
@@ -97,7 +97,7 @@ export default {
   }
   .introduce p,h4 {
     max-width:100%;
-    color:rgba(247, 245, 243, 0.8);
+    color: var(--textColor);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -106,7 +106,6 @@ export default {
   }
   ul:hover > :not(:hover) {
     /* margin:5px 10px; */
-    margin-top: -5px;
     filter: drop-shadow(0 0 10px #000);
     transform: perspective(800px) rotateY(35deg) scale(0.8);
   }

@@ -50,9 +50,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #2c3e50;
-        opacity: 0.6;
-        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.18), 0 40px 80px rgba(0, 0, 0, 0.24);
+        /* background-color: var(--headerColor); */
+        opacity: 0.8;
+        /* box-shadow: var(--gradientColor); */
         z-index: 999999;
     }
     /* 左侧conan logo */
@@ -63,6 +63,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 30px;
+        border-bottom: #e9e7ef solid 2px;
     }
     .navlogo {
         width: 80px;
@@ -89,26 +90,27 @@
     .bubble {
         display: inline-block;
         padding: 10px;
-        background-color: #f9f9f9;
+        background-color: var(--buddle);
+        color: var(--textColor);
         border-radius: 10px;
         position: absolute;
         width: 2.8em;
         height: 1.5em;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         font-size: 0.8em;
         font-weight: 800;
         font-family: 'Courier New', Courier, monospace;
         top: 10px;
         left:6rem;
         opacity: 0;
-        transition: all 0.5s
+        transition: all 0.5s;
+        line-height: 25px;
     }
     .bubble::before {
         content: "";
         width: 2rem;
         height: 2rem;
         clip-path: polygon(100% 31%, 40% 53%, 100% 69%);
-        background-color: #f9f9f9;
+        background-color: var(--buddle);
         position: absolute;
         top: 0.5rem;
         left: -1.9rem;
@@ -134,7 +136,7 @@
         transform: scale(1.2);
     }
     .nav-list li a {
-        color:whitesmoke;
+        color: var(--textColor);
         font-size: 1rem;
         font-weight: 800;
     }
@@ -144,7 +146,7 @@
     /* 被选中后的样式 */
     .active {
         opacity: 1;
-        background-color: #111211;
+        background-color: var(--active);
         border-radius: 15px;
     }
     /* 搜索框和按钮*/
@@ -152,7 +154,7 @@
         box-sizing:border-box;
         height: 2.5em;
         vertical-align: middle;
-        border: 1px solid whitesmoke;
+        border: 1px solid #dadadb;
     }
     .search {
         width: 12.5em;
@@ -163,13 +165,13 @@
     .search::placeholder {
         font-weight: 200;
         opacity: 0.4;
-        color: #8c4356;
+        color: var(--searchP);
     }
     .search:focus{
-        border-color: #66afe9;
+        border-color: var(--searchF);
         outline: 0;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        -webkit-box-shadow: inset 0 1px 1px var(--seachG);
+        box-shadow: inset 0 1px 1px var(--seachG);
     }
     .btn {
         width: 4rem;
@@ -178,12 +180,12 @@
         border: none;
         outline: 0;
         font-weight: 200;
-        background-color: #1677ff;
-        color: #f9f9f9;
+        background-color: var(--btn);
+        color: var(--textColor);
         
     }
     .btn:hover {
-        background-color: #4096ff;
+        background-color: var(--btnH);
     }
 
     /* 本地时间 */
@@ -198,7 +200,7 @@
         height: 2em;
         padding: 10px;
         box-sizing:border-box;
-        background-color: #f9f9f9;
+        background-color: var(--textColor);
         border-radius: 20px;
         display: flex;
         align-items: center;
@@ -211,7 +213,7 @@
         transform: translateY(-50%);
         left:10px;
         line-height: 2.5em;
-        background-color: #00bc12;
+        background-color: var(--toggle);
     }
     .dark, .light, .themeCheck {
         width: 25px;
