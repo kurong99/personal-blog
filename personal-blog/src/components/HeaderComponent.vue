@@ -25,7 +25,7 @@
                 src="//tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=3&bd=0&k=000000&f=&ltf=8080ff&htf=cc0000&q=1&e=1&a=1&c=57494&w=180&h=36&align=center"></iframe>
             </div>
             <div class="toggleThemes">
-                <div class="themeCheck"></div>
+                <div :class=theme @click="toggleTheme"></div>
                 <div class="dark">🌙</div>
                 <div class="light">🌞</div>
             </div>
@@ -35,7 +35,17 @@
 
 <script>
     export default {
-        name: 'HeaderComponent'
+        name: 'HeaderComponent',
+        computed: {
+            theme() {
+                return this.$store.state.theme;
+            }
+        },
+        methods: {
+            toggleTheme() {
+                this.$store.commit('toggleTheme');
+            }
+        }
     }
 </script>
 
@@ -137,8 +147,9 @@
     }
     .nav-list li a {
         color: var(--textColor);
-        font-size: 1rem;
+        font-size: .7rem;
         font-weight: 800;
+        line-height: 20px;
     }
     /* .nav-list li a:hover {
         color: rgb(241, 112, 112);
@@ -207,15 +218,20 @@
         justify-content: space-between;
         position: relative;
     }
-    .themeCheck {
+    .lightTheme, .darkTheme {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left:10px;
+        right: 10px;
         line-height: 2.5em;
         background-color: var(--toggle);
+        transition: all .2s linear;
     }
-    .dark, .light, .themeCheck {
+    .lightTheme {
+        transform: translateX(0px);
+    }
+    .darkTheme {
+        transform: translateX(-45px);
+    }
+    .dark, .light, .lightTheme, .darkTheme {
         width: 25px;
         height: 25px;
         border-radius: 15px;

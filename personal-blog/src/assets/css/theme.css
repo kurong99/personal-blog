@@ -1,0 +1,51 @@
+/* 默认亮色主题 */
+:root {
+    /* header */
+    --buddle: #e9e7ef;
+    --gradientColor: 0 40px 60px rgba(252, 248, 248, 0.18), 0 40px 80px rgba(160, 154, 154, 0.24);
+    --searchP: #8c4356;
+    --searchF: #66afe9;
+    --searchG: rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    --active: #f0f9f0;
+    --btn: #1677ff;
+    --btnH: #4096ff;
+    --toggle: #0bf33a;
+    /* content */
+    --bgImg: url(../imgs/ocean.jpg);
+    --A: #e0f0e9;
+    --B: #a1afc9;
+    --opacity: 0.8;
+    --underline: #00bc12;
+    /* footer */
+    --footerColor: linear-gradient(-45deg, #828d9b, rgb(55, 56, 58));
+    --footerGradient: linear-gradient(-225deg, #1206ee, #0cf637 29%, #08a4f3 67%, #d307fc);
+    --progress: #eceff2;
+    /* text color */
+    --textColor: rgb(15, 15, 15);
+  }
+
+  /* 暗色主题 */
+  html[data-theme='darkTheme'] {
+    /* header */
+    --buddle: #656468;
+    --gradientColor: 0 40px 60px rgba(0, 0, 0, 0.18), 0 40px 80px rgba(0, 0, 0, 0.24);
+    --searchP: #8c4356;
+    --searchF: #66afe9;
+    --searchG: rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    --active: #111211;
+    --btn: #003472;
+    --btnH: #2F3949;
+    --toggle: #003371;
+    /* content */
+    --bgImg: url(../imgs/sky.jpg);
+    --A: 	#2e4e7e;
+    --B: #065279;
+    --opacity: 0.6;
+    --underline: ;
+    /* footer */
+    --footerColor: linear-gradient(-45deg, #656468, rgb(9, 6, 21));
+    --footerGradient: linear-gradient(-225deg, #231557, #44107a 29%, #ff1361 67%, #fff800);
+    --progress: #44cef6;
+    /* text color */
+    --textColor: whitesmoke;
+  }
