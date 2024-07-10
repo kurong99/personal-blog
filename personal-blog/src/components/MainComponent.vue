@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import CarouselComponent from '../pages/CarouselComponent.vue'
-import ArticleList from '../pages/ArticleList.vue'
+import CarouselComponent from './CarouselComponent.vue'
+import ArticleList from './ArticleList.vue'
 
 export default {
     name: 'MainComponent',
