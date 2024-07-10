@@ -27,9 +27,6 @@ export default {
     MeteorComponent,
     FooterComponent
   },
-  mounted() {
-    this.$store.commit('toggleTheme',localStorage.getItem('theme'));
-  }
 }
 </script>
 
