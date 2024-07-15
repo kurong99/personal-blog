@@ -1,18 +1,18 @@
 <template>
   <div class="view-container">
-    <MainComponent/>
+    <router-view></router-view>
     <SideComponent/>
   </div>
 </template>
 
 <script>
-import MainComponent from './MainComponent';
+// import MainComponent from './MainComponent';
 import SideComponent from './SideComponent.vue';
 
 export default {
     name: 'ViewComponent',
     components: {
-        MainComponent,
+        // MainComponent,
         SideComponent
     }
 }

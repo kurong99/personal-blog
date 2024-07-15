@@ -9,11 +9,21 @@
             </div>
             <nav>
                 <ul class="nav-list">
-                    <li class="active"><a href="#">主页</a></li>
-                    <li><a href="#">娱乐</a></li>
-                    <li><a href="#">发现</a></li>
-                    <li><a href="#">简介</a></li>
-                    <li><a href="#">关于本站</a></li>
+                    <li>
+                        <router-link to="/index" active-class="active">首页</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/recreation" active-class="active">娱乐</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/findings" active-class="active">发现</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/introduction" active-class="active">简介</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/about" active-class="active">关于本站</router-link>
+                    </li>
                 </ul>
             </nav>
             <div class="seachInput">
@@ -150,15 +160,14 @@
         font-size: .7rem;
         font-weight: 800;
         line-height: 20px;
+        padding: 5px;
+        letter-spacing: 1px;
     }
-    /* .nav-list li a:hover {
-        color: rgb(241, 112, 112);
-    } */
     /* 被选中后的样式 */
     .active {
         opacity: 1;
         background-color: var(--active);
-        border-radius: 15px;
+        border-radius: 40px;
     }
     /* 搜索框和按钮*/
     .search,.btn {
