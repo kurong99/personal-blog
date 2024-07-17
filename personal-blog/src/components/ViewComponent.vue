@@ -6,13 +6,11 @@
 </template>
 
 <script>
-// import MainComponent from './MainComponent';
 import SideComponent from './SideComponent.vue';
 
 export default {
     name: 'ViewComponent',
     components: {
-        // MainComponent,
         SideComponent
     }
 }

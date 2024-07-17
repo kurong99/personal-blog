@@ -4,7 +4,7 @@
             <div class="content">
                 <h2>About Author</h2>
                 <img src="../assets/imgs/avatar.jpg" alt="">
-                <span>"一条咸鱼🐟: 爱好篮球🏀，计算机💻，瞎折腾🎰，浪费时间🕐，最在行最爱冰激凌🍦"</span>
+                <span>"一条咸鱼🐟: 爱好篮球🏀，计算机💻，瞎折腾🎰，浪费时间🕐，最爱冰激凌🍦"</span>
             </div>
         </div>
         <div class="skill">

@@ -23,9 +23,8 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 40px;
-        z-index: 999;
-    }
-    article {
         flex: 2;
+        padding: 20px;
+        z-index: 999;
     }
 </style>
