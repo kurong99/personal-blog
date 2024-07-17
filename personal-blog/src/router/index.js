@@ -6,7 +6,7 @@ import MainComponent from "@/components/MainComponent.vue";
 const routes = [
     // 首页路由
     {
-        path: '/index',
+        path: '/',
         component: MainComponent,
     },
     // 文章页面路由
@@ -35,6 +35,6 @@ const routes = [
     },
 ];
 
-const router = new VueRouter(routes);
+const router = new VueRouter({routes});
 
 export default router;
