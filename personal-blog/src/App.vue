@@ -6,7 +6,7 @@
     <section>
       <ViewContainer/>
     </section>
-    <MeteorComponent/>
+    <MeteorComponent v-if="$store.state.theme === 'darkTheme'"></MeteorComponent>
     <footer>
       <FooterComponent/>
     </footer>
