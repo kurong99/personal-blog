@@ -2,41 +2,14 @@
   <div class="carousel">
     <TitleComponent>精选文章</TitleComponent>
     <ul class="list">
-      <li>
-        <a href="#">
+      <li v-for="featured in featureds" :key="featured.id">
+        <router-link to="/article">
           <div class="introduce">
-            <h4>文章标题</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, animi.</p>
+            <h4>{{ featured.title }}</h4>
+            <p>{{ featured.content }}</p>
           </div>
-          <img src="../assets/imgs/lake.jpg" alt="">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="introduce">
-            <h4>文章标题</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ipsam!</p>
-          </div>
-          <img src="../assets/imgs/sunset.jpg" alt="">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="introduce">
-            <h4>文章标题</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, hic?</p>
-          </div>
-          <img src="../assets/imgs/skagsanden.jpg" alt="">
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <div class="introduce">
-            <h4>文章标题</h4>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, commodi!</p>
-          </div>
-          <img src="../assets/imgs/mountains.jpg" alt="">
-        </a>
+          <img :src="featured.coverImg" alt="img is not found">
+        </router-link>
       </li>
     </ul>
   </div>
@@ -49,6 +22,36 @@ export default {
     name: 'CarouselComponent',
     components: {
       TitleComponent,
+    },
+    data() {
+      return {
+        featureds: [
+          {
+            id: 1,
+            title: 'title one',
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, animi.',
+            coverImg: require('../assets/imgs/lake.jpg')
+          },
+          {
+            id: 2,
+            title: 'title two',
+            content: 'dolor sit amet consectetur adipisicing elit. Sint, ipsam!',
+            coverImg: require('../assets/imgs/sunset.jpg')
+          },
+          {
+            id: 3,
+            title: 'title three',
+            content: 'orem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, hic?',
+            coverImg: require('../assets/imgs/skagsanden.jpg')
+          },
+          {
+            id: 4,
+            title: 'title four',
+            content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, commodi!',
+            coverImg: require('../assets/imgs/mountains.jpg')
+          }
+        ] 
+      }
     }
 }
 </script>
