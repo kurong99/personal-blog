@@ -2,7 +2,7 @@
     <div class="content">
         <div class="container">
             <div class="navlogo">
-                <a href="http://localhost:8080/"></a>
+                <router-link to="/"></router-link>
                 <div class="bubble">
                     达咩!
                 </div>
@@ -10,7 +10,7 @@
             <nav>
                 <ul class="nav-list">
                     <li>
-                        <router-link to="/index" active-class="active">首页</router-link>
+                        <router-link to="/" active-class="active">首页</router-link>
                     </li>
                     <li>
                         <router-link to="/recreation" active-class="active">娱乐</router-link>
