@@ -19,12 +19,17 @@ export default {
 </script>
 
 <style scoped>
+    * {
+        box-sizing: border-box;
+    }
     article {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        flex: 2;
-        padding: 20px;
-        z-index: 999;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      flex: 2;
+      padding: 20px;
+      z-index: 999;
+      padding: 20px;
     }
 </style>
