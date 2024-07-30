@@ -1,7 +1,7 @@
 <template>
     <div class="article">
         <header>
-            <h1 class="title">HTML基础</h1>
+            <h1 class="title">{{ title }}</h1>
             <div class="detail">
                 <div class="author">
                     <img src="../assets/imgs/icons/writeby.png" alt="#">
@@ -36,11 +36,7 @@
             </div>
         </header>
         <div class="dividing"></div>
-        <article>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Placeat ipsum veritatis doloremque et quidem blanditiis consequatur laboriosam nobis, 
-            quo cupiditate architecto a eaque labore ratione impedit repellat minima quibusdam nesciunt.
-        </article>
+        <article v-html="htmlContent"></article>
         <footer>
             <div class="commentArea"></div>
         </footer>
@@ -60,28 +56,49 @@
 </template>
 
 <script>
+import md from '@/utills/markdown';
+
 export default {
-    name: 'ArticleComponent'
+    name: 'ArticleComponent',
+    created() {
+        this.title = md.name;
+        this.htmlContent = md.content;
+    },
+    data() {
+        return {
+            title: '',
+            htmlContent: ''
+        }
+    }
 }
 </script>
 
 <style scoped>
+    * {
+        box-sizing: border-box;
+    }
     .article {
-        height: 150vh;
+        width: 80%;
+        height: 100%;
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        gap: 20px;
         flex: 2; 
         z-index: 999;
         padding: 20px;
-        /* box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.5); */
         background-color: #e9e7ef;
         opacity: 0.6;
-    }
-    .article h1 {
-        margin: 0;
         text-align: left;
+        word-wrap:break-word;
     }
+    .article > h3 {
+        font-size: 1rem;
+        font-weight: bolder;
+        color: yellowgreen;
+    }
+    .article > p {
+        margin: 10px;
+    } 
     .detail, .browse {
         width: 40%;
         height: 30px;
