@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 axios.defaults.crossDomain = true
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = process.env.VUE_APP_Access_Control_Allow_Origin;
 
-
+const GITHUB_TOKEN = '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';
 const data = [];
 // 获取单个md文件
 // axios.get('https://api.github.com/repos/kurong99/plog/contents/2024/git和gitee.md',).then((res) => {
