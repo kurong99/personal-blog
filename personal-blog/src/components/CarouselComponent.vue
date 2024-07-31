@@ -17,6 +17,7 @@
 
 <script>
 import TitleComponent from '../components/TitleComponent';
+import featureds from '@/utills/markdown';
 
 export default {
     name: 'CarouselComponent',
@@ -25,33 +26,11 @@ export default {
     },
     data() {
       return {
-        featureds: [
-          {
-            id: 1,
-            title: 'title one',
-            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, animi.',
-            coverImg: require('../assets/imgs/lake.jpg')
-          },
-          {
-            id: 2,
-            title: 'title two',
-            content: 'dolor sit amet consectetur adipisicing elit. Sint, ipsam!',
-            coverImg: require('../assets/imgs/sunset.jpg')
-          },
-          {
-            id: 3,
-            title: 'title three',
-            content: 'orem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, hic?',
-            coverImg: require('../assets/imgs/skagsanden.jpg')
-          },
-          {
-            id: 4,
-            title: 'title four',
-            content: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse, commodi!',
-            coverImg: require('../assets/imgs/mountains.jpg')
-          }
-        ] 
+        featureds: []
       }
+    },
+    created() {
+      this.featureds = featureds;
     }
 }
 </script>
