@@ -8,7 +8,7 @@
             <h4>{{ featured.title }}</h4>
             <p>{{ featured.content }}</p>
           </div>
-          <img :src="featured.coverImg" alt="img is not found">
+          <img :src="featured.cover" alt="img not found">
         </router-link>
       </li>
     </ul>
