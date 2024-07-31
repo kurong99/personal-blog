@@ -56,14 +56,14 @@
 </template>
 
 <script>
-import md from '@/utills/markdown';
+import data from '@/utills/markdown';
 
 export default {
     name: 'ArticleComponent',
     created() {
         // this.title = md.name;
         // this.htmlContent = md.content;
-        console.log(md);
+        console.log(data);
     },
     data() {
         return {
