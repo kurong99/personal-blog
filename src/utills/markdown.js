@@ -1,12 +1,13 @@
 import axios from 'axios'
 import { nanoid } from 'nanoid';
 import { marked } from 'marked';
+// import store from '@/store';
 
 // 设置跨域请求
 axios.defaults.crossDomain = true
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = process.env.VUE_APP_Access_Control_Allow_Origin;
 
-// const GITHUB_TOKEN = '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';
+// const TOKEN = store.state.GITHUB_TOKEN;
 const data = [];
 // 获取单个md文件
 // axios.get('https://api.github.com/repos/kurong99/plog/contents/2024/git和gitee.md',).then((res) => {
@@ -32,6 +33,11 @@ const getMdFiles = async () => {
     const url = img.data.content.replace(/\n/g, '');
     const imgUrl = `data:image/jpg;base64,${url}`;
     // 获取文章内容
+        // const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024', {
+        //     headers: {
+        //         'Authorization': `token ${TOKEN}`
+        //     }
+        // });
         const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024');
         if(response.status === 200){
             const list = response.data;
