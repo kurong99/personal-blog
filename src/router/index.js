@@ -11,7 +11,7 @@ const routes = [
     },
     // 文章页面路由
     {
-        path: '/article', 
+        path: '/article/:name', 
         component: ArticleComponent
     },
     // 娱乐页面路由

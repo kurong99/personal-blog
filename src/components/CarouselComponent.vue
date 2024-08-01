@@ -1,12 +1,15 @@
 <template>
   <div class="carousel">
     <TitleComponent>精选文章</TitleComponent>
-    <ul class="list">
+    <div class="default" v-if="featureds.length == 0">
+        <h3>正在加载中........如果长时间没有反应，请稍后刷新重试!!!</h3>
+    </div>
+    <ul class="list" v-else>
       <li v-for="featured in featureds" :key="featured.id">
-        <router-link to="/article">
+        <router-link :to="`/article/${featured.name}`">
           <div class="introduce">
-            <h4>{{ featured.title }}</h4>
-            <p>{{ featured.content }}</p>
+            <h4>{{ featured.name }}</h4>
+            <p>{{ featured.introduction }}</p>
           </div>
           <img :src="featured.cover" alt="img not found">
         </router-link>
@@ -98,5 +101,11 @@ export default {
       width: 100%;
       height: 100%;
       border-radius: 50px;
+  }
+  .default {
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    color: rgb(229, 121, 121);
   }
 </style>

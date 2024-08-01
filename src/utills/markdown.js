@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { nanoid } from 'nanoid';
+import { marked } from 'marked';
 
 // 设置跨域请求
 axios.defaults.crossDomain = true
@@ -26,38 +27,43 @@ const data = [];
 // 获取仓库内所有文章
 const getMdFiles = async () => {
     // 获取封面
+    try{
     const img = await axios.get('https://api.github.com/repos/kurong99/plog/contents/pic/cover.jpg');
     const url = img.data.content.replace(/\n/g, '');
     const imgUrl = `data:image/jpg;base64,${url}`;
     // 获取文章内容
-    const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024');
-    if(response.status === 200){
-        const list = response.data;
-        for(const item of list) {
-            const base64Content = (await axios.get(`https://api.github.com/repos/kurong99/plog/contents/2024/${item.name}`)).data.content.replace(/\s/g, '');
-            const Base64 = require('js-base64').Base64;
-            const decodedContent = Base64.decode(base64Content);
+        const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024');
+        if(response.status === 200){
+            const list = response.data;
+            for(const item of list) {
+                const base64Content = (await axios.get(`https://api.github.com/repos/kurong99/plog/contents/2024/${item.name}`)).data.content.replace(/\s/g, '');
+                const Base64 = require('js-base64').Base64;
+                const decodedContent = marked(Base64.decode(base64Content));
+                const introduction = (Base64.decode(base64Content).replace(/<[^>]*>|^#+/gm, '')).split('。')[0];
+                data.push({
+                    id: nanoid(),
+                    name: item.name.split('.')[0],
+                    content: decodedContent,
+                    introduction,
+                    size: item.size,
+                    cover: imgUrl,
+                });
+            }
+        }else{
             data.push({
                 id: nanoid(),
-                name: item.name.split('.')[0],
-                content: decodedContent,
-                size: item.size,
+                name: "暂无内容",
+                content: "网络错误",
+                introduction: '暂无简介',
+                size: 0,
                 cover: imgUrl,
-                path: item.path.split('.')[0]
             });
         }
-    }else{
-        data.push({
-            id: nanoid(),
-            name: "暂无内容",
-            content: "网络错误",
-            size: 0,
-            cover: imgUrl,
-            path: '/'
-        });
+    }catch(e){
+        console.error('Error fetching file list:', e);
     }
     
 }
 getMdFiles();
-console.log(data);
+
 export default data;

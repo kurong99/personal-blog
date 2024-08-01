@@ -1,7 +1,7 @@
 <template>
     <div class="article">
         <header>
-            <h1 class="title">{{ title }}</h1>
+            <h1 class="title">{{ articleData.name }}</h1>
             <div class="detail">
                 <div class="author">
                     <img src="../assets/imgs/icons/writeby.png" alt="#">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="words">
                     <img src="../assets/imgs/icons/words.png" alt="#">
-                    <span>字数: 1000</span>
+                    <span>字数: {{ articleData.size }}</span>
                 </div>
             </div>
             <div class="browse">
@@ -36,7 +36,7 @@
             </div>
         </header>
         <div class="dividing"></div>
-        <article v-html="htmlContent"></article>
+        <article v-html="articleData.content"></article>
         <footer>
             <div class="commentArea"></div>
         </footer>
@@ -61,14 +61,15 @@ import data from '@/utills/markdown';
 export default {
     name: 'ArticleComponent',
     created() {
-        // this.title = md.name;
-        // this.htmlContent = md.content;
-        console.log(data);
+        const pageData = data.filter((item) => {
+            return item.name === this.$route.params.name;
+        })
+        this.articleData = pageData[0];
+        console.log(this.articleData);
     },
     data() {
         return {
-            title: '',
-            htmlContent: ''
+            articleData: {}
         }
     }
 }
@@ -87,8 +88,7 @@ export default {
         flex: 2; 
         z-index: 999;
         padding: 20px;
-        background-color: #e9e7ef;
-        opacity: 0.6;
+        background:rgba(236, 231, 231, 0.3);
         text-align: left;
         word-wrap:break-word;
     }
