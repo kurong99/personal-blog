@@ -36,22 +36,12 @@
             </div>
         </header>
         <div class="dividing"></div>
-        <article v-html="articleData.content"></article>
+        <article>
+            <div class="blogPage" v-html="articleData.content"></div>
+        </article>
         <footer>
             <div class="commentArea"></div>
         </footer>
-        <!-- <div class="side">
-            <div class="otherArticle"></div>
-            <div class="directory">
-                <title>###文章目录</title>
-                <ul>
-                    <li>开头</li>
-                    <li>正文</li>
-                    <li>总结</li>
-                    <li>结尾</li>
-                </ul>
-            </div>
-        </div> -->
     </div>
 </template>
 
@@ -65,7 +55,6 @@ export default {
             return item.name === this.$route.params.name;
         })
         this.articleData = pageData[0];
-        console.log(this.articleData);
     },
     data() {
         return {
@@ -91,15 +80,41 @@ export default {
         background:rgba(236, 231, 231, 0.3);
         text-align: left;
         word-wrap:break-word;
+        
     }
-    .article > h3 {
-        font-size: 1rem;
+    ::v-deep .blogPage p {
+        font-family: -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial !important;
+    }
+    ::v-deep .blogPage img {
+        width: 80%;
+        background-size: cover;
+        opacity: .8;
+    }
+    ::v-deep .blogPage h3{
+        font-size: 20px;
+        padding-left: .4em;
+        border-left: .4em solid #5e5e5e;
+        border-bottom: 1px solid #444;
+    }
+    ::v-deep .blogPage h4 {
+        margin-left: 10px;
+        font-size: .8rem;
         font-weight: bolder;
-        color: yellowgreen;
+        color: whitesmoke;
     }
-    .article > p {
-        margin: 10px;
-    } 
+    ::v-deep code{
+        display: inline-block;
+        width: 90%;
+        font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+        word-break: break-word;
+        border-radius: 2px;
+        overflow-x: auto;
+        background-color: #171717;
+        color: #bababa;
+        font-size: 14px;
+        padding: 40px 20px 20px;
+        text-align: left;
+    }
     .detail, .browse {
         width: 40%;
         height: 30px;
