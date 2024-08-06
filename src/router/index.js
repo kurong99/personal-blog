@@ -1,18 +1,28 @@
 import VueRouter from "vue-router";
 import ArticleComponent from "@/pages/ArticleComponent.vue";
 import MainComponent from "@/components/MainComponent.vue";
+import DirectoryComponent from '@/pages/DirectoryComponent.vue';
+import SideComponent from '@/pages/SideComponent.vue';
 
 // 路由规则
 const routes = [
     // 首页路由
     {
+        name: '首页',
         path: '/',
-        component: MainComponent,
+        components: {
+            'main': MainComponent,
+            'side': SideComponent
+        },
     },
     // 文章页面路由
     {
+        name: '文章',
         path: '/article/:name', 
-        component: ArticleComponent
+        components: {
+            'main': ArticleComponent,
+            'side': DirectoryComponent
+        }
     },
     // 娱乐页面路由
     {
@@ -35,6 +45,9 @@ const routes = [
     },
 ];
 
-const router = new VueRouter({routes});
+const router = new VueRouter({
+    mode: 'history',    
+    routes
+});
 
 export default router;
