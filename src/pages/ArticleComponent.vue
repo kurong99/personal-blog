@@ -55,12 +55,13 @@ export default {
             return item.name === this.$route.params.name;
         })
         this.articleData = pageData[0];
+        
     },
     data() {
         return {
             articleData: {}
         }
-    }
+    },
 }
 </script>
 

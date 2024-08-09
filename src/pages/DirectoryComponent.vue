@@ -12,40 +12,14 @@
       </div>
       <div class="catalog-body">
         <ul class="catalog-list">
-          <li>
+          <li v-for="(dir,index) in firstLevel" :key="index">
             <div class="a-container">
-              <a href="#" class="active">开头sadsa</a>
+              <a href="#" class="active">{{ dir }}</a>
             </div>
             <ul class="sub-list">
-              <li><a href="#">dfdsfds</a></li>
-              <li><a href="#">dsadsadss</a></li>
-            </ul>
-          </li>
-          <li>
-            <div class="a-container">
-              <a href="#">正文sadsa</a>
-            </div>
-            <ul class="sub-list">
-              <li><a href="#">dfdsfds</a></li>
-              <li><a href="#">dsadsadss</a></li>
-            </ul>
-          </li>
-          <li>
-            <div class="a-container">
-              <a href="#">总结sadsa</a>
-            </div>
-            <ul class="sub-list">
-              <li><a href="#">dfdsfds</a></li>
-              <li><a href="#">dsadsadss</a></li>
-            </ul>
-          </li>
-          <li>
-            <div class="a-container">
-              <a href="#">结尾sadsa</a>
-            </div>
-            <ul class="sub-list">
-              <li><a href="#">dfdsfds</a></li>
-              <li><a href="#">dsadsadss</a></li>
+              <li v-for="(dir,index) in secondLevel" :key="index">
+                <a href="#">{{ dir }}</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -80,7 +54,24 @@
 </template>
 
 <script>
-export default {};
+import data  from '@/utills/markdown'
+
+export default {
+  name: 'DirectoryComponent',
+  created() {
+    const pageData = data.filter((item) => {
+        return item.name === this.$route.params.name;
+    })
+    this.firstLevel = pageData[0].directory.h3;
+    this.secondLevel = pageData[0].directory.h4;
+  },
+  data() {
+    return {
+      firstLevel: [],
+      secondLevel: []
+    }
+  }
+};
 </script>
 
 <style scoped>
