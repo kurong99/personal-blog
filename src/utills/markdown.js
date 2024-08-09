@@ -46,6 +46,7 @@ const getMdFiles = async () => {
                 const Base64 = require('js-base64').Base64;
                 const decodedContent = marked(Base64.decode(base64Content));
                 const introduction = (Base64.decode(base64Content).replace(/<[^>]*>|^#+/gm, '')).split('。')[0];
+                const directory = await getDirectory(decodedContent);
                 data.push({
                     id: nanoid(),
                     name: item.name.split('.')[0],
@@ -53,6 +54,7 @@ const getMdFiles = async () => {
                     introduction,
                     size: item.size,
                     cover: imgUrl,
+                    directory
                 });
             }
         }else{
@@ -63,6 +65,7 @@ const getMdFiles = async () => {
                 introduction: '暂无简介',
                 size: 0,
                 cover: imgUrl,
+                directory: '暂无目录'
             });
         }
     }catch(e){
@@ -71,5 +74,22 @@ const getMdFiles = async () => {
     
 }
 getMdFiles();
+
+// 封装一个获取目录函数
+const getDirectory = (str) => {
+    // 正则匹配规则,匹配所有h1~h6标签及其内容
+    const regex = /<h([1-6])>(.*?)<\/h\1>/g;
+    const matches = [...str.matchAll(regex)];
+
+    // 如果匹配成功，将其组织成 {级数：['内容1', '内容2', ...]} 的形式
+    return matches.reduce((acc, match) => {
+        const [, level, content] = match; // 解构出标题级数和内容
+        if (!acc[`h${level}`]) acc[`h${level}`] = []; // 如果还没有这个级数的数组，初始化
+        acc[`h${level}`].push(content); // 将内容添加到相应级数的数组中
+        return acc;
+    }, {});
+};
+
+
 
 export default data;
