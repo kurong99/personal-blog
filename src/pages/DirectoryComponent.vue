@@ -3,24 +3,22 @@
     <div class="directory">
       <div class="catalog-title">
         <div>目录</div>
-        <div class="direction">
-          <div class="text">展开</div>
-          <svg width="12" height="12" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20,30 L50,70 L80,30" stroke="#8a919f" stroke-width="10" fill="none" />
-          </svg>
+        <div class="direction" @click="handler" v-if="this.firstLevel.length > 3">
+          <div class="text">{{ isExtend ? '收起' : '展开' }}</div>
+          <i class="iconfont" :class="icon"></i>
         </div>
       </div>
-      <div class="catalog-body">
+      <div class="catalog-body" :style="{ height }">
         <ul class="catalog-list">
-          <li v-for="(dir,index) in firstLevel" :key="index">
+          <li class="item" v-for="(dir,index) in firstLevel" :key="index">
             <div class="a-container">
               <a href="#" class="active">{{ dir }}</a>
             </div>
-            <ul class="sub-list">
-              <li v-for="(dir,index) in secondLevel" :key="index">
+            <!-- <ul class="sub-list">
+              <li class="item1" v-for="(dir,index) in secondLevel" :key="index">
                 <a href="#">{{ dir }}</a>
               </li>
-            </ul>
+            </ul> -->
           </li>
         </ul>
       </div>
@@ -46,10 +44,10 @@
         
       </ul>
     </div>
-    <!-- <div class="advertise">
+    <div class="advertise">
       <span>广告位招租</span>
       <img src="../assets/imgs/logo.png" alt="">
-    </div> -->
+    </div>
   </aside>
 </template>
 
@@ -63,24 +61,46 @@ export default {
         return item.name === this.$route.params.name;
     })
     this.firstLevel = pageData[0].directory.h3;
-    this.secondLevel = pageData[0].directory.h4;
+    // this.secondLevel = pageData[0].directory.h5 || [];
   },
   data() {
     return {
       firstLevel: [],
-      secondLevel: []
+      // secondLevel: [],
+      isExtend: false
+    }
+  },
+  methods: {
+    handler() {
+      this.isExtend = !this.isExtend;
+    }
+  },
+  computed: {
+    height() {
+      // 默认展示三个标题
+      let row = 3;
+      if(this.isExtend) {
+        // 展开之后展示全部
+        row = this.firstLevel.length;
+      }
+      return row * 34 + 'px';
+    },
+    icon() {
+      return this.isExtend ? 'icon-xiangshangjiantou' : 'icon-xiangxiajiantou';
     }
   }
 };
 </script>
 
 <style scoped>
+@import '//at.alicdn.com/t/c/font_4652214_63taphx5ah3.css';
+
   * {
     list-style: none;
     text-decoration: none;
   }
   a {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #010614;
     transition: all .3s;
   }
@@ -106,6 +126,8 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   .catalog-title {
     font-weight: 700;
@@ -132,24 +154,26 @@ export default {
   .catalog-body {
     width: 100%;
     margin-top: 20px;
+    transition: .3s linear;
   }
   .catalog-list {
     width: 100%;
+    margin: 0px;
     padding: 0px;
     text-align: left;
   }
-  .catalog-list li {
+  .item {
     cursor: pointer;
   }
-  .sub-list li {
+  .item1 {
+    height: 30px;
     padding: 5px 0;
+    cursor: pointer;
   }
-  .a-container {
-    padding: 5px 1.6rem;
+  .a-container, .b-container {
+    padding: 5px 0;
+    padding-left: 1.6rem;
     position: relative;
-  }
-  .b-container {
-    padding: 5px 1.6rem;
   }
   .active {
     color: #eff4f3;
@@ -164,5 +188,10 @@ export default {
     height: 14px;
     background: #f2f4f2;
     border-radius: 2px;
+  }
+  .iconfont {
+    font-size: 12px;
+    color: #8a919f;
+    cursor: pointer;
   }
 </style>
