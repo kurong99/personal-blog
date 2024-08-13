@@ -65,7 +65,9 @@ const getMdFiles = async () => {
                 introduction: '暂无简介',
                 size: 0,
                 cover: imgUrl,
-                directory: '暂无目录'
+                directory: {
+                    h3: '暂无目录'
+                }
             });
         }
     }catch(e){

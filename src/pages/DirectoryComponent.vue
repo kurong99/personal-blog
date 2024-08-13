@@ -60,7 +60,7 @@ export default {
     const pageData = data.filter((item) => {
         return item.name === this.$route.params.name;
     })
-    this.firstLevel = pageData[0].directory.h3;
+    this.firstLevel = pageData[0].directory.h3 || ['暂无目录'];
     // this.secondLevel = pageData[0].directory.h5 || [];
   },
   data() {
