@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header class="head">
       <Header/>
     </header>
     <section>
@@ -55,7 +55,7 @@ export default {
     z-index: 1;
     position: relative;
   }
-  header{
+  .head {
     position: sticky;
     top: 0;
     z-index: 9999;
