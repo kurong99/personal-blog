@@ -96,12 +96,18 @@ export default {
         padding-left: .4em;
         border-left: .4em solid #5e5e5e;
         border-bottom: 1px solid #444;
+        cursor: pointer;
     }
     ::v-deep .blogPage h4 {
         margin-left: 10px;
         font-size: .8rem;
         font-weight: bolder;
         color: whitesmoke;
+    }
+    ::v-deep .blogPage h5 {
+        margin-left: 30px;
+        font-size: .8rem;
+        font-weight: bolder;
     }
     ::v-deep code{
         display: inline-block;

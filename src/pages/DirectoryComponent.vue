@@ -12,40 +12,38 @@
         <ul class="catalog-list">
           <li class="item" v-for="(dir,index) in firstLevel" :key="index">
             <div class="a-container">
-              <a href="#" class="active">{{ dir }}</a>
+              <a :href="'#' + dir">{{ dir }}</a>
             </div>
-            <!-- <ul class="sub-list">
-              <li class="item1" v-for="(dir,index) in secondLevel" :key="index">
-                <a href="#">{{ dir }}</a>
-              </li>
-            </ul> -->
           </li>
         </ul>
       </div>
     </div>
     <div class="recommend">
       <div class="catalog-title">相关推荐</div>
-      <ul class="catalog-list">
-        <li>
-          <div class="b-container">
-            <a href="#" class="active">Lorem ipsum dolor sit.</a>
-          </div>
-        </li>
-        <li>
-          <div class="b-container">
-            <a href="#" class="active">Lorem ipsum dolor sit.</a>
-          </div>
-        </li>
-        <li>
-          <div class="b-container">
-            <a href="#" class="active">Lorem ipsum dolor sit.</a>
-          </div>
-        </li>
-        
-      </ul>
+      <div class="catalog-body">
+        <ul class="catalog-list">
+          <li>
+            <div class="b-container">
+              <a href="#" class="active" target="_blank">Lorem ipsum dolor sit.</a>
+            </div>
+          </li>
+          <li>
+            <div class="b-container">
+              <a href="#" class="active" target="_blank">Lorem ipsum dolor sit.</a>
+            </div>
+          </li>
+          <li>
+            <div class="b-container">
+              <a href="#" class="active" target="_blank">Lorem ipsum dolor sit.</a>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
     </div>
     <div class="advertise">
-      <span>广告位招租</span>
+      <div class="catalog-title">广告位招租</div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime natus expedita ad! </p>
       <img src="../assets/imgs/logo.png" alt="">
     </div>
   </aside>
@@ -110,7 +108,7 @@ export default {
   }
   aside {
     margin-top: 80px;
-    height: 80vh;
+    max-height: 90vh;
     color: var(--textColor);
     box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 10px 30px rgba(0,0,0,0.5);
     opacity: 0.8;
@@ -119,8 +117,8 @@ export default {
     top: 12vh;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    overflow-y: scroll;
+    gap: 30px;
+    /* overflow: hidden; */
   }
   .directory {
     width: 100%;
@@ -194,4 +192,7 @@ export default {
     color: #8a919f;
     cursor: pointer;
   }
+  /* .advertise {
+    flex: 1;
+  } */
 </style>

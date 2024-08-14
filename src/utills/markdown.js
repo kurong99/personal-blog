@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { nanoid } from 'nanoid';
 import { marked } from 'marked';
-// import store from '@/store';
 
 // 设置跨域请求
 axios.defaults.crossDomain = true
@@ -50,7 +49,7 @@ const getMdFiles = async () => {
                 data.push({
                     id: nanoid(),
                     name: item.name.split('.')[0],
-                    content: decodedContent,
+                    content: getHeadings(decodedContent),
                     introduction,
                     size: item.size,
                     cover: imgUrl,
@@ -77,9 +76,13 @@ const getMdFiles = async () => {
 }
 getMdFiles();
 
-// 封装一个获取目录函数
+// 封装一个获取目录内容函数
 const getDirectory = (str) => {
     // 正则匹配规则,匹配所有h1~h6标签及其内容
+    if(!str) {
+        return;
+    }
+    
     const regex = /<h([1-6])>(.*?)<\/h\1>/g;
     const matches = [...str.matchAll(regex)];
 
@@ -92,6 +95,18 @@ const getDirectory = (str) => {
     }, {});
 };
 
-
+// 给目录添加id属性值 添加锚点链接
+const getHeadings = (html) => {
+    const parse = new DOMParser();
+    const serialize = new XMLSerializer();
+    const doc = parse.parseFromString(html,'text/html');
+    const headings = [...doc.querySelectorAll('h1, h2, h3, h4, h5, h6')];
+    headings.forEach(item => {
+        item.id = item.textContent;
+    })
+    // 将dom对象转为字符串
+    const str = serialize.serializeToString(doc)
+    return str;
+}
 
 export default data;
