@@ -27,20 +27,20 @@ const data = [];
 // 获取仓库内所有文章
 const getMdFiles = async () => {
     // 获取封面
-    try{
-    const img = await axios.get('https://api.github.com/repos/kurong99/plog/contents/pic/cover.jpg');
-    const url = img.data.content.replace(/\n/g, '');
-    const imgUrl = `data:image/jpg;base64,${url}`;
-    // 获取文章内容
+    try {
+        const img = await axios.get('https://api.github.com/repos/kurong99/plog/contents/pic/cover.jpg');
+        const url = img.data.content.replace(/\n/g, '');
+        const imgUrl = `data:image/jpg;base64,${url}`;
+        // 获取文章内容
         // const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024', {
         //     headers: {
         //         'Authorization': `token ${TOKEN}`
         //     }
         // });
         const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024');
-        if(response.status === 200){
+        if (response.status === 200) {
             const list = response.data;
-            for(const item of list) {
+            for (const item of list) {
                 const base64Content = (await axios.get(`https://api.github.com/repos/kurong99/plog/contents/2024/${item.name}`)).data.content.replace(/\s/g, '');
                 const Base64 = require('js-base64').Base64;
                 const decodedContent = marked(Base64.decode(base64Content));
@@ -56,7 +56,7 @@ const getMdFiles = async () => {
                     directory
                 });
             }
-        }else{
+        } else {
             data.push({
                 id: nanoid(),
                 name: "暂无内容",
@@ -69,20 +69,20 @@ const getMdFiles = async () => {
                 }
             });
         }
-    }catch(e){
+    } catch (e) {
         console.error('Error fetching file list:', e);
     }
-    
+
 }
 getMdFiles();
 
 // 封装一个获取目录内容函数
 const getDirectory = (str) => {
     // 正则匹配规则,匹配所有h1~h6标签及其内容
-    if(!str) {
+    if (!str) {
         return;
     }
-    
+
     const regex = /<h([1-6])>(.*?)<\/h\1>/g;
     const matches = [...str.matchAll(regex)];
 
@@ -99,7 +99,7 @@ const getDirectory = (str) => {
 const getHeadings = (html) => {
     const parse = new DOMParser();
     const serialize = new XMLSerializer();
-    const doc = parse.parseFromString(html,'text/html');
+    const doc = parse.parseFromString(html, 'text/html');
     const headings = [...doc.querySelectorAll('h1, h2, h3, h4, h5, h6')];
     headings.forEach(item => {
         item.id = item.textContent;
