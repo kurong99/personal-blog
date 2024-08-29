@@ -9,8 +9,8 @@
             <div class="timeline-bar"></div>
           </div>
           <div class="timeline-content">
-            <h2 class="timeline-title">{{ item.title }}</h2>
-            <div class="content-details">{{ item.detail }}</div>
+            <h2 class="timeline-title">{{ item.name }}</h2>
+            <div class="content-details">{{ item.introduction }}</div>
           </div>
         </div>
     </div>
@@ -19,6 +19,7 @@
 
 <script>
 import TitleComponent from '../components/TitleComponent';
+import data from '../utills/common'
 
 export default {
     name: 'ArticleList',
@@ -28,47 +29,14 @@ export default {
     components: {
       TitleComponent
     },
+    created() {
+      console.log(data);
+      this.items = data;
+    },
     data() {
       return {
         isLoad: false,
-        items: [
-          {
-            id: 1,
-            date: 'Dec 25 2024',
-            title: 'Thanksgiving Day',
-            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
-          },
-          {
-            id: 2,
-            date: 'Dec 25 2024',
-            title: 'Thanksgiving Day',
-            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
-          },
-          {
-            id: 3,
-            date: 'Dec 25 2024',
-            title: 'Thanksgiving Day',
-            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
-          },
-          {
-            id: 4,
-            date: 'Dec 25 2024',
-            title: 'Thanksgiving Day',
-            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
-          },
-          {
-            id: 5,
-            date: 'Dec 25 2024',
-            title: 'Thanksgiving Day',
-            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
-          },
-          {
-            id: 6,
-            date: 'Dec 25 2024',
-            title: 'Thanksgiving Day',
-            detail: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni obcaecati et fugiat harum reiciendis'
-          }
-        ]
+        items: []
       }
     },
     methods: {
@@ -124,6 +92,9 @@ export default {
     z-index: 9999;
     cursor: pointer;
     transition: all 0.4s linear;
+  }
+  .timeline h2 {
+    margin: 10px;
   }
 
   .fade-in-right{
@@ -232,7 +203,7 @@ export default {
   }
   .timeline-content {
     position: absolute;
-    top: 20px;
+    top: 10px;
     color: var(--textColor);
     text-align:left;
     padding: 10px;
