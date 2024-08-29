@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import data from "@/utills/markdown";
+import data from "@/utills/featured";
 import SideItem from "@/components/DirectoryItem.vue";
 
 export default {

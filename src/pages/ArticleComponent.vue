@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import data from "@/utills/markdown";
+import data from "@/utills/featured";
 
 export default {
   name: "ArticleComponent",

@@ -20,7 +20,7 @@
 
 <script>
 import TitleComponent from '../components/TitleComponent';
-import featureds from '@/utills/markdown';
+import featureds from '@/utills/featured';
 
 export default {
     name: 'CarouselComponent',
