@@ -1,17 +1,17 @@
 <template>
   <div class="carousel">
     <TitleComponent>精选文章</TitleComponent>
-    <div class="default" v-if="featureds.length == 0">
+    <div class="default" v-if="items.length == 0">
         <h3>正在加载中........如果长时间没有反应，请稍后刷新重试!!!</h3>
     </div>
     <ul class="list" v-else>
-      <li v-for="featured in featureds" :key="featured.id">
-        <router-link :to="`/article/${featured.name}`">
+      <li v-for="item in items" :key="item.id">
+        <router-link :to="`/article/${item.type}/${item.name}`">
           <div class="introduce">
-            <h4>{{ featured.name }}</h4>
-            <p>{{ featured.introduction }}</p>
+            <h4>{{ item.name }}</h4>
+            <p>{{ item.introduction }}</p>
           </div>
-          <img :src="featured.cover" alt="img not found">
+          <img :src="item.cover" alt="img not found">
         </router-link>
       </li>
     </ul>
@@ -29,11 +29,11 @@ export default {
     },
     data() {
       return {
-        featureds: []
+        items: []
       }
     },
     created() {
-      this.featureds = featureds;
+      this.items = featureds;
     }
 }
 </script>
