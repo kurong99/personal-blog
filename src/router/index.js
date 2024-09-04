@@ -18,7 +18,7 @@ const routes = [
     // 文章页面路由
     {
         name: '文章',
-        path: '/article/:name', 
+        path: '/article/:type/:name', 
         components: {
             'main': ArticleComponent,
             'side': DirectoryComponent
