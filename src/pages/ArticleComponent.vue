@@ -46,15 +46,19 @@
 </template>
 
 <script>
-import data from "@/utills/featured";
+import featured from "@/utills/featured";
+import common from "@/utills/common";
 
 export default {
   name: "ArticleComponent",
   created() {
-    const pageData = data.filter((item) => {
+    const data = (this.$route.params.type == 'common') ? common : featured;
+    
+    const pageData = data.filter(item => {
       return item.name === this.$route.params.name;
-    });
+    })
     this.articleData = pageData[0];
+
   },
   data() {
     return {
