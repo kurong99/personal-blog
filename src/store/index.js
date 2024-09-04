@@ -27,6 +27,7 @@ const store = {
       },
       state: {
         theme: theme,
+        GITHUB_TOKEN: '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'
       },
 }
 

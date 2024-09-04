@@ -2,13 +2,13 @@ import axios from 'axios'
 import { nanoid } from 'nanoid';
 import { marked } from 'marked';
 import Utills from '../utills/directory'
-// import store from "@/store";
+import store from "@/store";
 
 // 设置跨域请求
 axios.defaults.crossDomain = true
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = process.env.VUE_APP_Access_Control_Allow_Origin;
 
-// const TOKEN = store.state.GITHUB_TOKEN;
+const TOKEN = store.state.GITHUB_TOKEN;
 const data = [];
 const { getDirectory, getHeadings } = Utills;
 // 获取单个md文件
@@ -31,16 +31,28 @@ const { getDirectory, getHeadings } = Utills;
 const getMdFiles = async () => {
     // 获取封面
     try {
-        const img = await axios.get('https://api.github.com/repos/kurong99/plog/contents/pic/cover.jpg');
+        const img = await axios.get('https://api.github.com/repos/kurong99/plog/contents/pic/cover.jpg',{
+            headers:{
+                'Authorization': `token ${TOKEN}`
+            }
+        });
         const url = img.data.content.replace(/\n/g, '');
         const imgUrl = `data:image/jpg;base64,${url}`;
         // 获取文章内容
-        const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024/featured');
+        const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024/featured',{
+            headers:{
+                'Authorization': `token ${TOKEN}`
+            }
+        });
         // const response = await axios.get('https://api.github.com/repos/kurong99/plog/contents/2024/featured');
         if (response.status === 200) {
             const list = response.data;
             for (const item of list) {
-                const base64Content = (await axios.get(`https://api.github.com/repos/kurong99/plog/contents/2024/featured/${item.name}`)).data.content.replace(/\s/g, '');
+                const base64Content = (await axios.get(`https://api.github.com/repos/kurong99/plog/contents/2024/featured/${item.name}`,{
+                    headers:{
+                        'Authorization': `token ${TOKEN}`
+                    }
+                })).data.content.replace(/\s/g, '');
                 const Base64 = require('js-base64').Base64;
                 const decodedContent = marked(Base64.decode(base64Content));
                 const introduction = (Base64.decode(base64Content).replace(/<[^>]*>|^#+/gm, '')).split('。')[0];
@@ -52,7 +64,8 @@ const getMdFiles = async () => {
                     introduction,
                     size: item.size,
                     cover: imgUrl,
-                    directory
+                    directory,
+                    type: 'featured'
                 });
             }
         } else {
