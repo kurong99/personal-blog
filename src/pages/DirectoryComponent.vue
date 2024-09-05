@@ -20,6 +20,15 @@
               :content="{ dir, index }"
               @active="$emit('active', $event)"
             />
+            <!-- <ul>
+              <li class="item" v-for="(dir, index) in secondLevel" :key="index">
+                <SideItem
+                  :isActive="activeId === index"
+                  :content="{ dir, index }"
+                  @active="$emit('active', $event)"
+                />
+              </li>
+            </ul> -->
           </li>
         </ul>
       </div>
@@ -64,8 +73,8 @@
 </template>
 
 <script>
-import data from "@/utills/featured";
-import SideItem from "@/components/DirectoryItem.vue";
+import data from "@/utills/type";
+import SideItem from "@/pages/SideItem.vue";
 
 export default {
   name: "DirectoryComponent",
@@ -79,11 +88,10 @@ export default {
     },
   },
   created() {
-    const pageData = data.filter((item) => {
-      return item.name === this.$route.params.name;
-    });
+    const pageData = data.getData();
+
     this.firstLevel = pageData[0].directory.h3 || ["暂无目录"];
-    // this.secondLevel = pageData[0].directory.h5 || [];
+    // this.secondLevel = pageData[0].directory.h4 || [];
   },
   data() {
     return {
