@@ -46,19 +46,13 @@
 </template>
 
 <script>
-import featured from "@/utills/featured";
-import common from "@/utills/common";
+import data from "@/utills/type"
 
 export default {
   name: "ArticleComponent",
   created() {
-    const data = (this.$route.params.type == 'common') ? common : featured;
-    
-    const pageData = data.filter(item => {
-      return item.name === this.$route.params.name;
-    })
+    const pageData = data.getData();
     this.articleData = pageData[0];
-
   },
   data() {
     return {
@@ -96,7 +90,7 @@ export default {
   opacity: 0.8;
 }
 ::v-deep .blogPage h3 {
-  font-size: 20px;
+  font-size: 25px;
   padding-left: 0.4em;
   border-left: 0.4em solid #5e5e5e;
   border-bottom: 1px solid #444;
@@ -104,13 +98,13 @@ export default {
 }
 ::v-deep .blogPage h4 {
   margin-left: 10px;
-  font-size: 0.8rem;
+  font-size: 20px;
   font-weight: bolder;
   color: whitesmoke;
 }
 ::v-deep .blogPage h5 {
   margin-left: 30px;
-  font-size: 0.8rem;
+  font-size: 15px;
   font-weight: bolder;
 }
 ::v-deep code {
@@ -120,8 +114,8 @@ export default {
   word-break: break-word;
   border-radius: 2px;
   overflow-x: auto;
-  background-color: #171717;
-  color: #bababa;
+  background-color: var(--codeAreaColor);
+  color: var(--codeColor);
   font-size: 14px;
   padding: 40px 20px 20px;
   text-align: left;
