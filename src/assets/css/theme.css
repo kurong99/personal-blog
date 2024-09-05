@@ -22,6 +22,8 @@
     --progress: #eceff2;
     /* text color */
     --textColor: rgb(15, 15, 15);
+    --codeColor: #151515;
+    --codeAreaColor: rgba(204, 201, 201, 0.6);
   }
 
   /* 暗色主题 */
@@ -48,4 +50,6 @@
     --progress: #44cef6;
     /* text color */
     --textColor: whitesmoke;
+    --codeColor: #bababa;
+    --codeAreaColor: rgba(0, 0, 0, 0.6);
   }
