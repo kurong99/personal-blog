@@ -24,6 +24,7 @@
     --textColor: rgb(15, 15, 15);
     --codeColor: #151515;
     --codeAreaColor: rgba(204, 201, 201, 0.6);
+    --musiclist: rgb(250, 249, 249);
   }
 
   /* 暗色主题 */
@@ -34,7 +35,7 @@
     --searchP: #8c4356;
     --searchF: #66afe9;
     --searchG: rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-    --active: #111211;
+    --active: #f0f3f0;
     --btn: #003472;
     --btnH: #2F3949;
     --toggle: #003371;
@@ -49,7 +50,8 @@
     --footerGradient: linear-gradient(-225deg, #231557, #44107a 29%, #ff1361 67%, #fff800);
     --progress: #44cef6;
     /* text color */
-    --textColor: whitesmoke;
+    --textColor: rgb(15, 15, 15);
     --codeColor: #bababa;
     --codeAreaColor: rgba(0, 0, 0, 0.6);
+    --musiclist: rgb(35, 183, 247);
   }

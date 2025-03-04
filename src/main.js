@@ -9,6 +9,8 @@ import router from '../src/router'
 import { Base64 } from 'js-base64';
 // 引入全局样式
 import '@/assets/css/theme.css'
+// 引入图标库
+import '@/assets/icon-font/iconfont.css'
 
 Vue.use(VueRouter);
 Vue.use(Base64);
