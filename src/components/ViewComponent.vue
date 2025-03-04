@@ -22,10 +22,17 @@ export default {
 
 <style scoped>
 .view-container {
-  width: 90vw;
-  /* height: auto; */
+  width: 95vw;
   margin: 20px auto;
   display: flex;
   gap: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .view-container {
+    width: 95vw;
+    margin: 20px auto;
+    display: flex;
+  }
 }
 </style>

@@ -48,7 +48,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  /* height: 100vh; */
+  width: 100%;
   background-image: var(--bgImg);
   background-size: cover;
   background-repeat: no-repeat;

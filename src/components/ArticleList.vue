@@ -2,42 +2,41 @@
   <div class="article-list">
     <TitleComponent>文章"轴"</TitleComponent>
     <div class="timelines">
-      <div
-        class="timeline"
-        v-for="item in items"
-        :key="item.id"
-        :class="{ 'fade-in-right': isLoad }"
-      >
-        <router-link :to="`/article/${item.type}/${item.name}`">
-          <div class="timeline-title"></div>
-          <div class="timeline-details">{{ item.date }}</div>
-          <div class="timeline-icon">
-            <div class="timeline-bar"></div>
-          </div>
-          <div class="timeline-content">
-            <h2 class="timeline-title">{{ item.name }}</h2>
-            <div class="content-details">{{ item.introduction }}</div>
-          </div>
-        </router-link>
+      <div class="timeline-container">
+        <div
+          class="timeline"
+          v-for="(item, index) in items"
+          :key="item.id"
+          :class="[
+            { 'fade-in-right': isLoad },
+            { 'timeline-left': index % 2 === 0 },
+            { 'timeline-right': index % 2 === 1 },
+          ]"
+        >
+          <router-link :to="`/article/${item.type}/${item.name}`">
+            <div class="timeline-content">
+              <div class="timeline-date">{{ item.date }}</div>
+              <div class="timeline-card">
+                <h2 class="timeline-title">{{ item.name }}</h2>
+                <p class="content-details">{{ item.introduction }}</p>
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TitleComponent from "../components/TitleComponent";
+import TitleComponent from "./TitleComponent";
 import common from "../utills/common";
 
 export default {
   name: "ArticleList",
-  mounted() {
-    window.addEventListener("load", this.handleLoad, true);
-  },
   components: {
     TitleComponent,
-  },
-  created() {
-    this.items = common;
   },
   data() {
     return {
@@ -45,179 +44,223 @@ export default {
       items: [],
     };
   },
+  mounted() {
+    window.addEventListener("load", this.handleLoad);
+  },
+  created() {
+    this.items = common;
+  },
   methods: {
     handleLoad() {
       this.isLoad = true;
     },
   },
-  beforeMount() {
+  beforeDestroy() {
     window.removeEventListener("load", this.handleLoad);
   },
 };
 </script>
 
 <style scoped>
-.html {
-  font-size: 16px;
-}
-
 .article-list {
   width: 100%;
-  flex-grow: 1;
-  /* overflow: scroll; */
+  padding: 20px;
+  overflow-x: hidden;
 }
+
 .timelines {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 90px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 60px auto;
   position: relative;
 }
-.timelines::before {
+
+.timeline-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-container::before {
   content: "";
-  background-color: #32363b;
-  background-image: -webkit-linear-gradient(
-    top,
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(
+    to bottom,
     #4f7da7 0%,
     #062f61 8%,
     #526b8a 92%,
     #0b74fd 100%
   );
+  transform: translateX(-50%);
   border-radius: 2px;
-  margin-left: -2px;
-  position: absolute;
-  display: block;
-  height: 100%;
-  width: 4px;
-  left: 50%;
-  top: 0;
-}
-.timeline {
-  --size: 40%;
-  --space: calc(100% - 40% - 20px);
-  width: var(--size);
-  height: 200px;
-  margin: 10px 0 0 20px;
-  opacity: 0.8;
-  position: relative;
-  border-radius: 5px;
-  z-index: 9999;
-  cursor: pointer;
-  transition: all 0.4s linear;
-}
-.timeline h2 {
-  margin: 10px;
+  z-index: 1;
 }
 
-.fade-in-right {
-  animation: appear-in-right 1.3s ease;
+.timeline {
+  width: 100%;
+  margin-bottom: 40px;
+  position: relative;
 }
-@keyframes appear-in-right {
+
+.timeline a {
+  text-decoration: none;
+}
+
+.timeline-content {
+  width: calc(50% - 30px);
+  position: relative;
+  padding: 0 20px;
+  z-index: 2;
+}
+
+.timeline-card {
+  background: var(--A);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-title {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+  color: var(--textColor);
+}
+
+.content-details {
+  color: var(--textColor);
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.timeline-date {
+  position: absolute;
+  top: 0;
+  color: var(--textColor);
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--btn);
+  border-radius: 50%;
+  top: 15px;
+  border: 3px solid var(--A);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* 左侧时间轴样式 */
+.timeline-left .timeline-content {
+  margin-left: auto;
+  text-align: right;
+}
+
+.timeline-left .timeline-date {
+  right: calc(100% + 40px);
+}
+
+.timeline-left .timeline-dot {
+  right: -38px;
+}
+
+/* 右侧时间轴样式 */
+.timeline-right .timeline-content {
+  margin-right: auto;
+  text-align: left;
+}
+
+.timeline-right .timeline-date {
+  left: calc(100% + 40px);
+}
+
+.timeline-right .timeline-dot {
+  left: -38px;
+}
+
+/* 动画效果 */
+.fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+@keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(150px);
+    transform: translateX(50px);
   }
   to {
-    opacity: 0.8;
-    transform: translateX(0px);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-.timeline:nth-child(2n) {
-  background-color: var(--B);
-}
-.timeline:nth-child(2n)::before {
-  content: "";
-  clip-path: polygon(0 13%, 0 87%, 89% 50%);
-  width: 2.2rem;
-  height: 2.2rem;
-  position: absolute;
-  top: 20%;
-  left: 100%;
-  background-color: var(--B);
+/* 悬停效果 */
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-.timeline:nth-child(2n + 1) {
-  margin: 10px 0 0 var(--space);
-  background-color: var(--A);
-}
-.timeline:nth-child(2n + 1)::before {
-  content: "";
-  clip-path: polygon(101% 0, 101% 70%, 15% 35%);
-  width: 2.2rem;
-  height: 2.2rem;
-  position: absolute;
-  top: 20%;
-  right: 100%;
-  background-color: var(--A);
+/* 响应式布局 */
+@media screen and (max-width: 1024px) {
+  .timelines {
+    width: 95%;
+  }
 }
 
-.timeline:nth-child(2n),
-.timeline:nth-child(2n + 1) {
-  filter: drop-shadow(0px 30px 30px rgba(0, 0, 0, 0.8));
+@media screen and (max-width: 768px) {
+  .timeline-container::before {
+    left: 30px;
+  }
+
+  .timeline-content {
+    width: calc(100% - 60px);
+    margin-left: 60px !important;
+    text-align: left !important;
+  }
+
+  .timeline-date {
+    position: relative !important;
+    left: 0 !important;
+    right: auto !important;
+    top: -30px !important;
+    margin-bottom: -20px;
+  }
+
+  .timeline-dot {
+    left: -38px !important;
+    right: auto !important;
+  }
 }
 
-.timeline:nth-child(2n + 1) .timeline-details {
-  right: 150%;
-}
+@media screen and (max-width: 480px) {
+  .article-list {
+    padding: 10px;
+  }
 
-.timeline:nth-child(2n) .timeline-details {
-  left: 150%;
-}
-.timeline:nth-child(2n) .timeline-details,
-.timeline:nth-child(2n + 1) .timeline-details {
-  color: var(--textColor);
-  margin: 50px 0 0 50px;
-  position: absolute;
-  font-weight: 500;
-  width: 100px;
-  text-decoration: underline;
-  text-decoration-color: var(--underline);
-}
-.timeline:nth-child(2n + 1) .timeline-icon {
-  --top: 20%;
-  --w: 7px;
-  --h: calc(20% + calc(35px / 2) - var(--w));
-  --l: calc(0% - var(--size) / 2 - 5px);
-  background-color: #1c1f23;
-  position: absolute;
-  left: var(--l);
-  top: var(--h);
-  height: 14px;
-  width: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  z-index: 999;
-}
-.timeline:nth-child(2n) .timeline-icon {
-  --top: 20%;
-  --w: 7px;
-  --h: calc(20% + calc(35px / 2) - var(--w));
-  --r: calc(0% - var(--size) / 2 - 5px);
-  background-color: #152443d8;
-  position: absolute;
-  right: var(--r);
-  top: var(--h);
-  height: 14px;
-  width: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  z-index: 999;
-}
-.timeline-bar {
-  height: 4px;
-  width: 4px;
-  background: #c1c1c1;
-  border-radius: 5px;
-}
-.timeline-content {
-  position: absolute;
-  top: 10px;
-  color: var(--textColor);
-  text-align: left;
-  padding: 10px;
+  .timeline-card {
+    padding: 15px;
+  }
+
+  .timeline-title {
+    font-size: 1.2rem;
+  }
+
+  .content-details {
+    font-size: 0.9rem;
+  }
+
+  .timeline-date {
+    font-size: 0.8rem;
+  }
 }
 </style>
